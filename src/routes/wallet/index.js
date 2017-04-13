@@ -9,18 +9,18 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import Contact from './Contact';
+import Wallet from './Wallet';
 
-const title = '联系我们';
+const title = '钱包余额';
 
 export default {
 
-  path: '/contact',
+  path: '/wallet',
 
   action() {
     return {
       title,
-      component: <Layout><Contact title={title} /></Layout>,
+      component: <Layout><Wallet /></Layout>,
     };
   },
 

@@ -9,18 +9,18 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import Contact from './Contact';
+import MakePan from './MakePan';
 
-const title = '联系我们';
+const title = '续费';
 
 export default {
 
-  path: '/contact',
+  path: '/make_plan',
 
   action() {
     return {
       title,
-      component: <Layout><Contact title={title} /></Layout>,
+      component: <Layout><MakePan /></Layout>,
     };
   },
 

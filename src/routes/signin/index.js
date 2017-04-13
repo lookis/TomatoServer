@@ -9,18 +9,18 @@
 
 import React from 'react';
 import Layout from '../../components/Layout';
-import Contact from './Contact';
+import Signin from './Signin';
 
-const title = '联系我们';
+const title = '登陆';
 
 export default {
 
-  path: '/contact',
+  path: '/signin',
 
   action() {
     return {
       title,
-      component: <Layout><Contact title={title} /></Layout>,
+      component: <Layout><Signin /></Layout>,
     };
   },
 

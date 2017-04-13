@@ -14,6 +14,7 @@ class Html extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    keywords: PropTypes.string.isRequired,
     styles: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.string.isRequired,
       cssText: PropTypes.string.isRequired,
@@ -23,21 +24,24 @@ class Html extends React.Component {
   };
 
   static defaultProps = {
+    keywords:'',
     styles: [],
     scripts: [],
   };
 
   render() {
-    const { title, description, styles, scripts, children } = this.props;
+    const { title, description, keywords, styles, scripts, children } = this.props;
     return (
       <html className="no-js" lang="en">
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <title>{title}</title>
+          <meta name="keywords" content={keywords} />
           <meta name="description" content={description} />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+          <link rel="stylesheet" type="text/css" href="/static/css/tomato.css" />
           {styles.map(style =>
             <style
               key={style.id}
@@ -53,6 +57,8 @@ class Html extends React.Component {
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: children }}
           />
+          <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+          <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.js" />
           {scripts.map(script => <script key={script} src={script} />)}
           {analytics.google.trackingId &&
             <script

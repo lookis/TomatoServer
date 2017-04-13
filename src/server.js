@@ -142,6 +142,7 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   const html = ReactDOM.renderToStaticMarkup(
     <Html
       title="Internal Server Error"
+      keywords={[]}
       description={err.message}
       styles={[{ id: 'css', cssText: errorPageStyle._getCss() }]} // eslint-disable-line no-underscore-dangle
     >
