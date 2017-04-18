@@ -24,7 +24,7 @@ class Html extends React.Component {
   };
 
   static defaultProps = {
-    keywords:'',
+    keywords: '',
     styles: [],
     scripts: [],
   };
@@ -57,7 +57,7 @@ class Html extends React.Component {
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: children }}
           />
-          <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+          <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js" />
           <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.js" />
           {scripts.map(script => <script key={script} src={script} />)}
           {analytics.google.trackingId &&

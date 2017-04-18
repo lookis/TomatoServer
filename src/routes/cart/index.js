@@ -18,9 +18,17 @@ export default {
   path: '/cart',
 
   action() {
+    const order = {
+      id: 'order_id',
+      name: '番茄网络加速代理',
+      count: 1,
+      price: 9,
+      statue: "pending",
+      createAt: new Date(),
+    }
     return {
       title,
-      component: <Layout><Cart/></Layout>,
+      component: <Layout><Cart order={order}/></Layout>,
     };
   },
 

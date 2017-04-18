@@ -9,7 +9,6 @@
  */
 
 import React, { PropTypes } from 'react';
-import Link from '../../components/Link';
 
 export default class extends React.Component {
   static propTypes = {
@@ -41,27 +40,6 @@ export default class extends React.Component {
                     </div>
                   </div>
                   <div className="form-group">
-                    <label id="mode-label" data-placement="right" data-original-title="`海外-&gt;大陆`适用于身在海外,需要加速访问国内网站的用户。" className="col-sm-4 control-label">加速类型            &nbsp;<i className="fa fa-info-circle" /></label>
-                    <div id="mode-container" className="col-sm-7">
-                      <div className="checkbox">
-                        <input type="checkbox" id="proxymode-cnout" className="checkbox-info" name="proxy_mode[]" value="cnout" defaultChecked />
-                        <label htmlFor="proxymode-cnout" >
-                          大陆 -&gt; 海外</label>
-                      </div>
-                      <div className="checkbox">
-                        <input type="checkbox" id="proxymode-cnin" className="checkbox-info" name="proxy_mode[]" value="cnin" />
-                        <label htmlFor="proxymode-cnin" >
-                          海外 -&gt; 大陆</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <label id="device-label" data-placement="right" data-original-title="假设您有2台macbook,但是并非同时使用,可以只购买1台设备的授权。安装在第一台设备后,在用户中心将其禁用，然后就可以在第二台设备上安装使用。" className="col-sm-4 control-label">支持设备数            &nbsp;<i className="fa fa-info-circle" /></label>
-                    <div className="col-sm-7">
-                      <input type="number" style={{ color: '#333' }} min="1" max="10" id="device_limit" name="device_limit" defaultValue="1" />
-                    </div>
-                  </div>
-                  <div className="form-group">
                     <label className="col-sm-4 control-label">购买时长</label>
                     <div id="time-container" className="col-sm-7">
                       <div className="radio">
@@ -89,7 +67,7 @@ export default class extends React.Component {
                   <div className="form-group">
                     <label className="col-sm-4 control-label">费用</label>
                     <div className="col-sm-7">
-                      <p><span id="fee" style={{ fontWeight: 200, paddingLeft: `${10}px`, letterSpacing: `${5}px`, lineHeight: `${24}px`, fontSize: `${20}px` }} className="label label-info">¥18/$3</span></p>
+                      <p><span id="fee" style={{ fontWeight: 200, paddingLeft: `${10}px`, letterSpacing: `${5}px`, lineHeight: `${24}px`, fontSize: `${20}px` }} className="label label-info">¥18</span></p>
                     </div>
                   </div>
                   <div className="form-group" style={{ marginTop: `${20}px` }}>

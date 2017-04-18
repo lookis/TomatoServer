@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /**
  * React Starter Kit (https://www.reactstarterkit.com/)
  *
@@ -12,163 +13,105 @@ import Link from '../../components/Link';
 
 export default class extends React.Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    orders: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      count: PropTypes.number.isRequired,
+      price: PropTypes.number.isRequired,
+      state: PropTypes.string.isRequired,
+      createAt: PropTypes.object.isRequired,
+    }).isRequired).isRequired,
   };
   render() {
     return (
-      <div>
-        <nav id="dashboard-nav" className="tomato-main-nav navbar navbar-default" role="navigation">
-          <div className="container">
-            <div className="navbar-header">
-              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#global-nav">
-                <span className="sr-only">显示导航</span>
-                <span className="icon-bar" />
-                <span className="icon-bar" />
-                <span className="icon-bar" />
-              </button>
-              <Link className="navbar-brand" to={'/'}>番茄网络</Link>
-            </div>
-
-            <div className="collapse navbar-collapse" id="#global-nav">
-              <ul className="nav navbar-nav">
-                <li className="active">
-                  <Link to={'/dashboard'}>用户中心</Link>
-                </li>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <section className="widget">
+              <ol className="breadcrumb">
                 <li>
-                  <Link to={'/faq'}>常见问题</Link>
-                </li>
-              </ul>
-              <ul className="nav navbar-nav navbar-right">
-                <li className="dropdown">
-                  <Link to={'/orders#'} style={{ padding: 0, paddingTop: `${3}px` }} className="dropdown-toggle" data-toggle="dropdown">
-                    <img style={{ width: `${32}px`, height: `${32}px` }} alt="avatar" className="img-rounded" src="./static/15211395ce115c7f4bff646618ad368c" />&nbsp;&nbsp;lookisliu@gmail.com<b className="caret" />
-                  </Link>
-                  <ul className="dropdown-menu" role="menu">
-                    <li>
-                      <Link to={'/wallet'}>
-                        <i className="fa fa-cny" />
-                        &nbsp;&nbsp;钱包余额
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'/orders'}>
-                        <i className="fa fa-book" />
-                        历史订单
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'/forgot_password'}>
-                        <i className="fa fa-key" />
-                        重置密码
-                      </Link>
-                    </li>
-                    <li className="divider" />
-                    <li>
-                      <Link to={'/signout?_csrf=1535bf6328ac5e0cdd290fa14e8c0cf9'}>
-                        <i className="fa fa-sign-out" />退出登录
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <section className="widget">
-                <ol className="breadcrumb">
-                  <li>
-                    <Link to={'/dashboard'}>
-                      <i className="fa fa-user" /> 用户中心
+                  <Link to={'/dashboard'}>
+                    <i className="fa fa-user" /> 用户中心
                     </Link>
+                </li>
+                <li className="active">
+                  <i className="fa fa-book" /> 所有订单
                   </li>
-                  <li className="active">
-                    <i className="fa fa-book" /> 所有订单
-                  </li>
-                </ol>
-              </section>
-            </div>
+              </ol>
+            </section>
           </div>
-          <div className="row">
-            <div className="col-md-12">
-              <section className="widget">
-                <div className="body">
-                  <div id="error-con" />
-                  <div id="list" style={{ position: 'relative', minHeight: `${100}px` }}>
-                    <form id="TN_Table_7_form">
-                      <table id="TN_Table_7_table" className="table table-striped">
-                        <tbody>
-                          <tr>
-                            <th width="18.181818181818183%">产品</th>
-                            <th width="9.090909090909092%">总价</th>
-                            <th width="9.090909090909092%">状态</th>
-                            <th width="27.27272727272727%">创建时间</th>
-                            <th width="36.36363636363637%" style={{ textAlign: 'center' }}>操作</th>
-                          </tr>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <section className="widget">
+              <div className="body">
+                <div id="error-con" />
+                <div id="list" style={{ position: 'relative', minHeight: `${100}px` }}>
+                  <form id="TN_Table_7_form">
+                    <table id="TN_Table_7_table" className="table table-striped">
+                      <tbody>
+                        <tr>
+                          <th width="20%">产品</th>
+                          <th width="10%">总价</th>
+                          <th width="10%">状态</th>
+                          <th width="30%">创建时间</th>
+                          <th width="30%" style={{ textAlign: 'center' }}>操作</th>
+                        </tr>
+                        {this.props.orders.map(order => (
                           <tr className="">
-                            <td>番茄网络加速代理</td>
-                            <td>¥18.00</td>
+                            <td>{order.name}</td>
+                            <td>¥{order.price}.00</td>
                             <td>
-                              <span className="text-default">已取消</span>
+                              <span
+                                style={{ fontWeight: 200, paddingLeft: `${10}px`, letterSpacing: `${5}px`, lineHeight: `${20}px`, fontSize: `${14}px` }}
+                                className={`label label-${order.state === 'cancel' ? 'default' : 'success'}`}
+                              >
+                                {order.state === 'cancel' ? '已取消' :
+                                order.state === 'pending' ? '待支付' : '已完成' }
+                              </span>
                             </td>
-                            <td className="gray">04/06 下午 4:47</td>
+                            <td className="gray">
+                              {order.createAt.getFullYear()}年
+                              {order.createAt.getMonth() + 1}月
+                              {order.createAt.getDate()}日 - {order.createAt.getHours()}:
+                              {order.createAt.getMinutes()}:
+                              {order.createAt.getSeconds()}</td>
                             <td className="tn-tb-ac">
-                              <Link to={'/orders#nogo'} data-index="2017040616470516842" data-ac="%E8%AF%A6%E6%83%85">详情</Link>
+                              <Link to={`/order?id=${order.id}`} >详情</Link>
                             </td>
                           </tr>
-                          <tr className="">
-                            <td>番茄网络加速代理</td>
-                            <td>¥194.40</td>
-                            <td>
-                              <span className="text-success">完成</span>
-                            </td>
-                            <td className="gray">2015/09/21 上午 10:22</td>
-                            <td className="tn-tb-ac">
-                              <Link to={'/orders#nogo'} data-index="2015092110221338558" data-ac="%E8%AF%A6%E6%83%85">详情</Link>
-                            </td>
-                          </tr>
-                          <tr className="">
-                            <td>番茄网络加速代理</td>
-                            <td>¥9.00</td>
-                            <td>
-                              <span className="text-success">完成</span>
-                            </td>
-                            <td className="gray">2015/09/20 上午 4:32</td>
-                            <td className="tn-tb-ac">
-                              <Link to={'/orders#nogo'} data-index="2015092004325669445" data-ac="%E8%AF%A6%E6%83%85">详情</Link>
-                            </td>
-                          </tr>
-                          <tr className="">
-                            <td>番茄网络加速代理</td>
-                            <td>¥9.00</td>
-                            <td>
-                              <span className="textSuccess">完成</span>
-                            </td>
-                            <td className="gray">2015/08/19 上午 9:55</td>
-                            <td className="tn-tb-ac">
-                              <Link to={'/orders#nogo'} data-index="2015081909554828305" data-ac="%E8%AF%A6%E6%83%85">详情</Link>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </form>
-                    <div id="TN_Table_7_pager">
-                      <ul className="pagination">
-                        <li>
-                          <span className="data-count">共<b>4</b>条</span>
-                        </li>
-                      </ul>
-                    </div>
+                        ))}
+                      </tbody>
+                    </table>
+                  </form>
+                  <div>
+                    <ul className="pagination">
+                      <li className="disabled">
+                        <a href="#" aria-label="Previous">
+                          <span aria-hidden="true">上一页</span>
+                        </a>
+                      </li>
+                      <li className="active">
+                        <Link data-page="1" to={'/wallet'} onClick={() => false}>1</Link>
+                      </li>
+                      <li>
+                        <Link data-page="2" to={'/wallet'} onClick={() => false}>2</Link>
+                      </li>
+                      <li>
+                        <Link data-action="next" to={'/wallet'} onClick={() => false}>下一页</Link>
+                      </li>
+                      <li>
+                        <Link data-action="last" to={'/wallet'} onClick={() => false}>尾页</Link>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-
-              </section>
-            </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
+
     );
   }
 }

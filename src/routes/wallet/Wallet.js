@@ -16,63 +16,6 @@ export default class extends React.Component {
   };
   render() {
     return (
-      <div>
-        <nav id="dashboard-nav" className="tomato-main-nav navbar navbar-default" role="navigation">
-          <div className="container">
-            <div className="navbar-header">
-              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#global-nav">
-                <span className="sr-only">显示导航</span>
-                <span className="icon-bar" />
-                <span className="icon-bar" />
-                <span className="icon-bar" />
-              </button>
-              <Link className="navbar-brand" to={'/'}>番茄网络</Link>
-            </div>
-            <div className="collapse navbar-collapse" id="#global-nav">
-              <ul className="nav navbar-nav">
-                <li className="active">
-                  <Link to={'/dashboard'}>用户中心</Link>
-                </li>
-                <li>
-                  <Link to={'/faq'}>常见问题</Link>
-                </li>
-              </ul>
-              <ul className="nav navbar-nav navbar-right">
-                <li className="dropdown">
-                  <Link to={'/wallet#'} style={{ padding: 0, paddingTop: `${3}px` }} className="dropdown-toggle" data-toggle="dropdown">
-                    <img alt="avatar" style={{ width: `${32}px`, height: `${32}px` }} className="img-rounded" src="./static/15211395ce115c7f4bff646618ad368c" />&nbsp;&nbsp;lookisliu@gmail.com<b className="caret" />
-                  </Link>
-                  <ul className="dropdown-menu" role="menu">
-                    <li>
-                      <Link to={'/wallet'}>
-                        <i className="fa fa-cny" />
-                        &nbsp;&nbsp;钱包余额
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'/orders'}>
-                        <i className="fa fa-book" />
-                        历史订单
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={'/forgot_password'}>
-                        <i className="fa fa-key" />
-                        重置密码
-                      </Link>
-                    </li>
-                    <li className="divider" />
-                    <li>
-                      <Link to={'/signout?_csrf=1535bf6328ac5e0cdd290fa14e8c0cf9'}>
-                        <i className="fa fa-sign-out" />退出登录
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -194,7 +137,7 @@ export default class extends React.Component {
                         </tbody>
                       </table>
                     </form>
-                    <div id="TN_Table_9_pager">
+                    <div>
                       <ul className="pagination">
                         <li>
                           <span className="data-count">共<b>8</b>条</span>
@@ -219,7 +162,6 @@ export default class extends React.Component {
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }

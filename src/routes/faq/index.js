@@ -10,6 +10,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import Faq from './Faq';
+import Header from '../../components/Header';
 
 const title = '常见问题';
 
@@ -18,9 +19,16 @@ export default {
   path: '/faq',
 
   action() {
+    const me = {
+      id: 'user_id',
+      email: 'lookisliu@gmail.com',
+    }
     return {
       title,
-      component: <Layout><Faq /></Layout>,
+      component: <Layout>
+        <Header me={me} location={this.path} />
+        <Faq />
+      </Layout>,
     };
   },
 

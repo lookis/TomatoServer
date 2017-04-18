@@ -17,32 +17,6 @@ export default class extends React.Component {
   render() {
     return (
       <div className="container landing">
-        <header className="page-header">
-          <div className="navbar">
-            <ul className="nav navbar-nav pull-right navbar-menu hidden-xs">
-              <li>
-                <Link to={'/'}>
-                  首页
-                </Link>
-              </li>
-              <li className="active">
-                <Link to={'/faq'}>
-                  常见问题
-                </Link>
-              </li>
-              <li>
-                <Link to={'/signin'}>
-                  登录
-                </Link>
-              </li>
-              <li>
-                <Link to={'/signup'}>
-                  注册
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </header>
         <div className="row" style={{ marginTop: `${40}px` }}>
           <div className="col-md-12">
             <div className="panel-group" id="faqs">

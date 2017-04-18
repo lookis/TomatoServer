@@ -21106,11 +21106,10 @@ html {
 body {
   font-weight: 300;
   padding-bottom: 100px;
-  background-color: #154265 20%;
-  background-image: radial-gradient(farthest-side ellipse at 10% 0, #154265 20%, #7392c2);
-  background-image: -webkit-radial-gradient(10% 0, farthest-side ellipse, #154265 20%, #7392c2);
-  background-image: -moz-radial-gradient(10% 0, farthest-side ellipse, #154265 20%, #7392c2);
-  background-attachment: fixed, fixed;
+  background:  #000 url(../img/background.jpg) no-repeat fixed center;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22589,7 +22588,7 @@ a.text-gray-lighter:focus {
   box-sizing: content-box;
   padding: 12px 17px;
   color: #f8f8f8;
-  background: rgba(51, 51, 51, 0.4);
+  background: rgba(51, 51, 51, 0.6);
   margin-bottom: 30px;
   position: relative;
 }

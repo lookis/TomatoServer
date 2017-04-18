@@ -10,6 +10,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import Wallet from './Wallet';
+import Header from '../../components/Header';
 
 const title = '钱包余额';
 
@@ -18,9 +19,17 @@ export default {
   path: '/wallet',
 
   action() {
+    const me = {
+      id: 'user_id',
+      email: 'lookisliu@gmail.com',
+    };
+
     return {
       title,
-      component: <Layout><Wallet /></Layout>,
+      component: <Layout>
+        <Header me={me} location={this.path} />
+        <Wallet />
+      </Layout>,
     };
   },
 

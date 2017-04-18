@@ -9,13 +9,12 @@
 
 import React from 'react';
 import Header from '../../components/Header';
-import Home from './Home';
-// import fetch from '../../core/fetch';
+import Invite from './Invite';
 import Layout from '../../components/Layout';
 
 export default {
 
-  path: '/',
+  path: '/invite',
 
   async action() {
     // const resp = await fetch('/graphql', {
@@ -39,7 +38,7 @@ export default {
       title: '番茄网络',
       component: <Layout>
         <Header me={me} location={this.path} />
-        <Home />
+        <Invite />
       </Layout>,
     };
   },

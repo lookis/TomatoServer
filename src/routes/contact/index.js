@@ -10,6 +10,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import Contact from './Contact';
+import Header from '../../components/Header';
 
 const title = '联系我们';
 
@@ -18,9 +19,16 @@ export default {
   path: '/contact',
 
   action() {
+    const me = {
+      id: 'user_id',
+      email: 'lookisliu@gmail.com',
+    }
     return {
       title,
-      component: <Layout><Contact title={title} /></Layout>,
+      component: <Layout>
+        <Header me={me} location={this.path} />
+        <Contact title={title} />
+      </Layout>,
     };
   },
 

@@ -13,10 +13,6 @@ import Footer from '../Footer';
 class Layout extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    // me: PropTypes.shape({
-    //   id: PropTypes.string.isRequired,
-    //   email: PropTypes.string.isRequired,
-    // }),
   };
 
   render() {

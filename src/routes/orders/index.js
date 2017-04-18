@@ -10,6 +10,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import Orders from './Orders';
+import Header from '../../components/Header';
 
 const title = '所有订单';
 
@@ -18,9 +19,28 @@ export default {
   path: '/orders',
 
   action() {
+    const me = {
+      id: 'user_id',
+      email: 'lookisliu@gmail.com',
+    };
+
+    const order = {
+      id: 'order_id',
+      name: '番茄网络加速代理',
+      count: 1,
+      price: 9,
+      state: 'cancel',
+      createAt: new Date(),
+    };
+
+    const orders = [order, order, order, order, order, order];
+
     return {
       title,
-      component: <Layout><Orders /></Layout>,
+      component: <Layout>
+        <Header me={me} location={this.path} />
+        <Orders orders={orders} />
+      </Layout>,
     };
   },
 

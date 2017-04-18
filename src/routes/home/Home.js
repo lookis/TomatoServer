@@ -15,32 +15,6 @@ class Home extends React.Component {
   render() {
     return (
       <div className="container landing">
-        <header className="page-header">
-          <div className="navbar">
-            <ul className="nav navbar-nav pull-right navbar-menu hidden-xs">
-              <li className="active">
-                <Link to={'/'}>
-                  首页
-                </Link>
-              </li>
-              <li>
-                <Link to={'/faq'}>
-                  常见问题
-                </Link>
-              </li>
-              <li>
-                <Link to={'/signin'}>
-                  登录
-                  </Link>
-              </li>
-              <li>
-                <Link to={'/signup'}>
-                  注册
-                  </Link>
-              </li>
-            </ul>
-          </div>
-        </header>
         <div className="row" style={{ marginTop: `${90}px`, marginBottom: `${40}px` }}>
           <div className="col-sm-5" style={{ textAlign: 'center' }}>
             <h1 style={{ fontWeight: 200 }}>番茄网络 1.8.1</h1>
