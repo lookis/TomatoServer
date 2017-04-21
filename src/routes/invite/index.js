@@ -33,12 +33,31 @@ export default {
     const me = {
       id: 'user_id',
       email: 'lookisliu@gmail.com',
-    }
+    };
+
+    const invitations = [{
+      email: 'lookisliu@gmail.com',
+      membership: true,
+      createAt: new Date(),
+    }, {
+      email: 'lookisliu@gmail.com',
+      membership: false,
+      createAt: new Date(),
+    }, {
+      email: 'lookisliu@gmail.com',
+      membership: true,
+      createAt: new Date(),
+    }, {
+      email: 'lookisliu@gmail.com',
+      membership: false,
+      createAt: new Date(),
+    }];
+
     return {
       title: '番茄网络',
       component: <Layout>
         <Header me={me} location={this.path} />
-        <Invite />
+        <Invite invitations={invitations} me={me} />
       </Layout>,
     };
   },

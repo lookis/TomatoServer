@@ -28,7 +28,6 @@ export default {
     require('./signin').default,
     require('./signup').default,
     require('./termsOfService').default,
-    require('./wallet').default,
     require('./invite').default,
     // require('./signup').default,
 

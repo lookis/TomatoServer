@@ -58,7 +58,7 @@ export default class extends React.Component {
                           <th width="30%" style={{ textAlign: 'center' }}>操作</th>
                         </tr>
                         {this.props.orders.map(order => (
-                          <tr className="">
+                          <tr>
                             <td>{order.name}</td>
                             <td>¥{order.price}.00</td>
                             <td>

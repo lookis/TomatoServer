@@ -34,7 +34,6 @@ const news = {
           if (data.status === 'ok') {
             items = data.items;
           }
-
           return items;
         })
         .finally(() => {
