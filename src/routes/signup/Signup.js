@@ -31,7 +31,7 @@ export default class extends React.Component {
                   <div className="form-group">
                     <label className="col-sm-4 control-label" htmlFor="email">邮箱</label>
                     <div className="col-sm-5">
-                      <input type="text" placeholder="不推荐使用qq邮箱,可能无法收到邮件" id="email" name="email" className="form-control" />
+                      <input type="text" placeholder="不推荐使用qq邮箱,可能无法收到邮件" id="username" name="username" className="form-control" />
                     </div>
                   </div>
                   <div className="form-group">

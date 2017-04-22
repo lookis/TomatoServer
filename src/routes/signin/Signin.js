@@ -30,7 +30,7 @@ export default class extends React.Component {
                     <span className="input-group-addon">
                       <i className="fa fa-user" />
                     </span>
-                    <input id="email" name="email" type="email" className="form-control input-lg" placeholder="邮箱" />
+                    <input id="username" name="username" type="email" className="form-control input-lg" placeholder="邮箱" />
                   </div>
                 </div>
                 <div className="form-group">
