@@ -47,43 +47,41 @@ export default class extends React.Component {
               <div className="body">
                 <div id="error-con" />
                 <div id="list" style={{ position: 'relative', minHeight: `${100}px` }}>
-                  <form id="TN_Table_7_form">
-                    <table id="TN_Table_7_table" className="table table-striped">
-                      <tbody>
+                  <table id="TN_Table_7_table" className="table table-striped">
+                    <tbody>
+                      <tr>
+                        <th width="20%">产品</th>
+                        <th width="10%">总价</th>
+                        <th width="10%">状态</th>
+                        <th width="30%">创建时间</th>
+                        <th width="30%" style={{ textAlign: 'center' }}>操作</th>
+                      </tr>
+                      {this.props.orders.map(order => (
                         <tr>
-                          <th width="20%">产品</th>
-                          <th width="10%">总价</th>
-                          <th width="10%">状态</th>
-                          <th width="30%">创建时间</th>
-                          <th width="30%" style={{ textAlign: 'center' }}>操作</th>
-                        </tr>
-                        {this.props.orders.map(order => (
-                          <tr>
-                            <td>{order.name}</td>
-                            <td>¥{order.price}.00</td>
-                            <td>
-                              <span
-                                style={{ fontWeight: 200, paddingLeft: `${10}px`, letterSpacing: `${5}px`, lineHeight: `${20}px`, fontSize: `${14}px` }}
-                                className={`label label-${order.state === 'cancel' ? 'default' : 'success'}`}
-                              >
-                                {order.state === 'cancel' ? '已取消' :
+                          <td>{order.name}</td>
+                          <td>¥{order.price}.00</td>
+                          <td>
+                            <span
+                              style={{ fontWeight: 200, paddingLeft: `${10}px`, letterSpacing: `${5}px`, lineHeight: `${20}px`, fontSize: `${14}px` }}
+                              className={`label label-${order.state === 'cancel' ? 'default' : 'success'}`}
+                            >
+                              {order.state === 'cancel' ? '已取消' :
                                 order.state === 'pending' ? '待支付' : '已完成' }
-                              </span>
-                            </td>
-                            <td className="gray">
-                              {order.createAt.getFullYear()}年
+                            </span>
+                          </td>
+                          <td className="gray">
+                            {order.createAt.getFullYear()}年
                               {order.createAt.getMonth() + 1}月
                               {order.createAt.getDate()}日 - {order.createAt.getHours()}:
                               {order.createAt.getMinutes()}:
                               {order.createAt.getSeconds()}</td>
-                            <td className="tn-tb-ac">
-                              <Link to={`/order?id=${order.id}`} >详情</Link>
-                            </td>
-                          </tr>
+                          <td className="tn-tb-ac">
+                            <Link to={`/order?id=${order.id}`} >详情</Link>
+                          </td>
+                        </tr>
                         ))}
-                      </tbody>
-                    </table>
-                  </form>
+                    </tbody>
+                  </table>
                   <div>
                     <ul className="pagination">
                       <li className="disabled">

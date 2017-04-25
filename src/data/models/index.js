@@ -8,7 +8,7 @@
  */
 
 import sequelize from '../sequelize';
-import User from './User';
+import User from './Account';
 
 function sync(...args) {
   return sequelize.sync(...args);

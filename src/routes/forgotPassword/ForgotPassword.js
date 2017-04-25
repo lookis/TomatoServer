@@ -26,6 +26,7 @@ export default class extends React.Component {
           <div className="col-md-12">
             <section className="widget">
               <div className="body">
+                <div className="alert alert-danger"><p>邮箱地址格式错误:123</p></div>
                 <form method="post" id="main-form" className="form-horizontal label-right">
                   <div className="form-group">
                     <label className="col-sm-4 control-label" htmlFor="email">邮箱</label>

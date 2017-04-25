@@ -7,10 +7,10 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import UserType from '../types/UserType';
+import AccountType from '../types/AccountType';
 
 const me = {
-  type: UserType,
+  type: AccountType,
   resolve({ request }) {
     return request.user && {
       id: request.user.id,

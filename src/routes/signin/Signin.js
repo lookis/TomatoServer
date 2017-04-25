@@ -22,10 +22,10 @@ export default class extends React.Component {
             <h4>登录番茄网络</h4>
           </header>
           <div className="body">
+            <div className="alert alert-danger"><p>邮箱地址格式错误:123</p></div>
             <form id="main-form" className="no-margin" method="post">
               <fieldset>
                 <div className="form-group ">
-
                   <div className="input-group input-group-lg">
                     <span className="input-group-addon">
                       <i className="fa fa-user" />

@@ -10,6 +10,7 @@
 import React, { PropTypes } from 'react';
 import md5 from 'md5';
 import Link from '../../components/Link';
+import { host } from '../../config';
 
 class Invite extends React.Component {
   static propTypes = {
@@ -59,7 +60,7 @@ class Invite extends React.Component {
                           该部分使用时长和付费购买的服务一致，只是不可退款</caption>
                       <tbody>
                         <tr>
-                          <th width="50%">http://tomato.network/signup?i={md5(this.props.me.email)}</th>
+                          <th width="50%">http://{host}/signup?i={md5(this.props.me.email)}</th>
                         </tr>
                       </tbody>
                     </table>

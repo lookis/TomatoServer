@@ -11,7 +11,7 @@ import md5 from 'md5';
 import DataType from 'sequelize';
 import Model from '../sequelize';
 
-const User = Model.define('User', {
+const Account = Model.define('Account', {
 
   id: {
     type: DataType.UUID,
@@ -53,9 +53,10 @@ const User = Model.define('User', {
   },
 
   indexes: [
-    { fields: ['email'] },
+    { unique: true,
+      fields: ['email'] },
   ],
 
 });
 
-export default User;
+export default Account;
