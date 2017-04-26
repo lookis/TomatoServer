@@ -26,7 +26,6 @@ export default {
 
     const order = {
       id: 'order_id',
-      name: '番茄网络加速代理',
       count: 1,
       price: 9,
       state: 'pending',

@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import Header from '../../components/Header';
 import Invite from './Invite';
 import Layout from '../../components/Layout';
@@ -54,7 +55,7 @@ export default {
     }];
 
     return {
-      title: '番茄网络',
+      title: '我的邀请',
       component: <Layout>
         <Header me={me} location={this.path} />
         <Invite invitations={invitations} me={me} />

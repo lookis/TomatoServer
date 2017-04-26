@@ -16,6 +16,7 @@ import run from './run';
 import runServer from './runServer';
 import webpackConfig from './webpack.config';
 import clean from './clean';
+import extractMessages from './extractMessages';
 import copy from './copy';
 
 const isDebug = !process.argv.includes('--release');
@@ -29,6 +30,7 @@ const [clientConfig, serverConfig] = webpackConfig;
  */
 async function start() {
   await run(clean);
+  await run(extractMessages);
   await run(copy);
   await new Promise((resolve) => {
     // Save the server-side bundle files to the file system after compilation

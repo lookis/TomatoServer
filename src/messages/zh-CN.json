@@ -1,0 +1,1151 @@
+[
+  {
+    "id": "footer.contact",
+    "description": "Contact in footer",
+    "defaultMessage": "联系我们",
+    "message": "",
+    "files": [
+      "src/components/Footer/Footer.js"
+    ]
+  },
+  {
+    "id": "footer.dashboard",
+    "description": "Dashboard in footer",
+    "defaultMessage": "用户中心",
+    "message": "",
+    "files": [
+      "src/components/Footer/Footer.js"
+    ]
+  },
+  {
+    "id": "footer.home",
+    "description": "Home in footer",
+    "defaultMessage": "首页",
+    "message": "",
+    "files": [
+      "src/components/Footer/Footer.js"
+    ]
+  },
+  {
+    "id": "footer.sitename",
+    "description": "Sitename in footer",
+    "defaultMessage": "番茄网络",
+    "message": "",
+    "files": [
+      "src/components/Footer/Footer.js"
+    ]
+  },
+  {
+    "id": "footer.tos",
+    "description": "Term of service in footer",
+    "defaultMessage": "服务协议",
+    "message": "",
+    "files": [
+      "src/components/Footer/Footer.js"
+    ]
+  },
+  {
+    "id": "header.dashboard",
+    "description": "Dashboard in header",
+    "defaultMessage": "用户中心",
+    "message": "",
+    "files": [
+      "src/components/Header/Header.js"
+    ]
+  },
+  {
+    "id": "header.faq",
+    "description": "Faq in header",
+    "defaultMessage": "常见问题",
+    "message": "",
+    "files": [
+      "src/components/Header/Header.js"
+    ]
+  },
+  {
+    "id": "header.forgot_password",
+    "description": "Forgot Password in header",
+    "defaultMessage": "忘记密码",
+    "message": "",
+    "files": [
+      "src/components/Header/Header.js"
+    ]
+  },
+  {
+    "id": "header.home",
+    "description": "Home in header",
+    "defaultMessage": "首页",
+    "message": "",
+    "files": [
+      "src/components/Header/Header.js"
+    ]
+  },
+  {
+    "id": "header.invite",
+    "description": "Invite in header",
+    "defaultMessage": "奖励时长",
+    "message": "",
+    "files": [
+      "src/components/Header/Header.js"
+    ]
+  },
+  {
+    "id": "header.orders",
+    "description": "Orders in header",
+    "defaultMessage": "历史订单",
+    "message": "",
+    "files": [
+      "src/components/Header/Header.js"
+    ]
+  },
+  {
+    "id": "header.signin",
+    "description": "Signin in header",
+    "defaultMessage": "登录",
+    "message": "",
+    "files": [
+      "src/components/Header/Header.js"
+    ]
+  },
+  {
+    "id": "header.signout",
+    "description": "Signout in header",
+    "defaultMessage": "退出登录",
+    "message": "",
+    "files": [
+      "src/components/Header/Header.js"
+    ]
+  },
+  {
+    "id": "header.signup",
+    "description": "Signup in header",
+    "defaultMessage": "注册",
+    "message": "",
+    "files": [
+      "src/components/Header/Header.js"
+    ]
+  },
+  {
+    "id": "header.sitename",
+    "description": "Site Name in header",
+    "defaultMessage": "番茄网络",
+    "message": "",
+    "files": [
+      "src/components/Header/Header.js"
+    ]
+  },
+  {
+    "id": "contact.emailInformation",
+    "description": "email information",
+    "defaultMessage": "番茄网络目前唯一联系邮箱：",
+    "message": "",
+    "files": [
+      "src/routes/contact/Contact.js"
+    ]
+  },
+  {
+    "id": "contact.otherInformation",
+    "description": "other information",
+    "defaultMessage": "如果有什么好的想法请联系我们，一经采纳会奖励使用时长哦",
+    "message": "",
+    "files": [
+      "src/routes/contact/Contact.js"
+    ]
+  },
+  {
+    "id": "contact.title",
+    "description": "breadcrumb of page",
+    "defaultMessage": "联系我们",
+    "message": "",
+    "files": [
+      "src/routes/contact/Contact.js"
+    ]
+  },
+  {
+    "id": "cart.checkout",
+    "description": "checkout button",
+    "defaultMessage": "结算",
+    "message": "",
+    "files": [
+      "src/routes/cart/Cart.js"
+    ]
+  },
+  {
+    "id": "cart.details",
+    "description": "details column of form",
+    "defaultMessage": "详情",
+    "message": "",
+    "files": [
+      "src/routes/cart/Cart.js"
+    ]
+  },
+  {
+    "id": "cart.duration",
+    "description": "duration of form",
+    "defaultMessage": "购买时长:{month}个月",
+    "message": "",
+    "files": [
+      "src/routes/cart/Cart.js"
+    ]
+  },
+  {
+    "id": "cart.price",
+    "description": "price column of form",
+    "defaultMessage": "价格",
+    "message": "",
+    "files": [
+      "src/routes/cart/Cart.js"
+    ]
+  },
+  {
+    "id": "cart.product",
+    "description": "product column of form",
+    "defaultMessage": "产品名称",
+    "message": "",
+    "files": [
+      "src/routes/cart/Cart.js"
+    ]
+  },
+  {
+    "id": "cart.productName",
+    "description": "Product Name",
+    "defaultMessage": "番茄网络加速代理",
+    "message": "",
+    "files": [
+      "src/routes/cart/Cart.js"
+    ]
+  },
+  {
+    "id": "cart.title",
+    "description": "Title of checkout form",
+    "defaultMessage": "订单结算",
+    "message": "",
+    "files": [
+      "src/routes/cart/Cart.js"
+    ]
+  },
+  {
+    "id": "cart.total",
+    "description": "total amount to pay",
+    "defaultMessage": "应付总额：",
+    "message": "",
+    "files": [
+      "src/routes/cart/Cart.js"
+    ]
+  },
+  {
+    "id": "dashboard.action",
+    "defaultMessage": "操作",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "dashboard.duration",
+    "defaultMessage": "到期日",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "dashboard.endTime",
+    "defaultMessage": "{year}年{month}月{date}日",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "dashboard.mode",
+    "defaultMessage": "普通",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "dashboard.product",
+    "defaultMessage": "模式",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "dashboard.serviceOff",
+    "defaultMessage": "已过期",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "dashboard.serviceOn",
+    "defaultMessage": "未过期",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "dashboard.subscribe",
+    "defaultMessage": "续费",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "dashboard.title",
+    "defaultMessage": "服务信息",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "faq.question1.answer1",
+    "defaultMessage": "请确定已经下载安装最新版本的番茄网络",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question1.answer2",
+    "defaultMessage": "如果使用chrome浏览器，不要开启代理切换或者广告屏蔽插件，例如:proxy switchy，优酷去广告",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question1.answer3",
+    "defaultMessage": "如果是firefox浏览器，需要手工设置socks代理",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question1.queation",
+    "defaultMessage": "为什么我的番茄网络不能用?",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question2.answer1",
+    "defaultMessage": "对于Chrome和Safari浏览器，只要启用系统代理即可(如果已经安装了翻墙,代理切换,广告屏蔽插件，请禁用)。",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question2.answer2",
+    "defaultMessage": "对于Firefox浏览器，可以手工配置浏览器使用socks5代理:127.0.0.1:1081，并勾选远程DNS。",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question2.queation",
+    "defaultMessage": "番茄网络支持哪些浏览器?",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question3.answer1",
+    "defaultMessage": "不会，番茄网络会自动识别您访问网站的ip，如果是国外的ip才会使用代理访问。如果启用番茄网络时感觉访问国内网站很慢，可以设置DNS为114.114.114.114。",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question3.queation",
+    "defaultMessage": "番茄网络会影响访问国内网站的速度吗？",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question4.answer1",
+    "defaultMessage": "番茄网络会在系统的网络设置-&gt;高级-&gt;代理下面启用一个socks5代理和一个自动配置文件",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question4.queation",
+    "defaultMessage": "番茄网络会修改哪些网络设置?",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question5.answer1",
+    "defaultMessage": "如果你使用的校园网不能访问任何国外网站，可以使用番茄网络提供的国内中转线路。",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question5.queation",
+    "defaultMessage": "教育网可以使用番茄网络吗?",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question6.answer1",
+    "defaultMessage": "加速服务到期后，客户端会弹出续费提示，在续费期间您还可以免费使用一天。",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question6.queation",
+    "defaultMessage": "服务到期后如何续费？",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question7.answer1",
+    "defaultMessage": "可以设置以下环境变量",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question7.answer2",
+    "defaultMessage": "设置后，git,curl,wget等命令均可使用番茄网络的加速服务",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question7.answer3",
+    "defaultMessage": "对于ssh命令,可以通过参数指定代理",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question7.answer4",
+    "defaultMessage": "或者也可以编辑配置文件 ~/.ssh/config",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.question7.queation",
+    "defaultMessage": "如何在命令行使用番茄网络?",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "faq.title",
+    "defaultMessage": "常见问题",
+    "message": "",
+    "files": [
+      "src/routes/faq/Faq.js"
+    ]
+  },
+  {
+    "id": "forgot.email",
+    "defaultMessage": "邮件地址",
+    "message": "",
+    "files": [
+      "src/routes/forgotPassword/ForgotPassword.js"
+    ]
+  },
+  {
+    "id": "forgot.send",
+    "defaultMessage": "发送密码重置链接",
+    "message": "",
+    "files": [
+      "src/routes/forgotPassword/ForgotPassword.js"
+    ]
+  },
+  {
+    "id": "forgot.title",
+    "defaultMessage": "忘记密码",
+    "message": "",
+    "files": [
+      "src/routes/forgotPassword/ForgotPassword.js"
+    ]
+  },
+  {
+    "id": "home.price",
+    "defaultMessage": "仅需 ¥9/月",
+    "message": "",
+    "files": [
+      "src/routes/home/Home.js"
+    ]
+  },
+  {
+    "id": "home.productName",
+    "defaultMessage": "番茄网络 1.0.1",
+    "message": "",
+    "files": [
+      "src/routes/home/Home.js"
+    ]
+  },
+  {
+    "id": "home.requirement",
+    "defaultMessage": "系统要求: Mac OS X10.7或更高版本",
+    "message": "",
+    "files": [
+      "src/routes/home/Home.js"
+    ]
+  },
+  {
+    "id": "home.subtitle1",
+    "defaultMessage": "穿梭网络海洋",
+    "message": "",
+    "files": [
+      "src/routes/home/Home.js"
+    ]
+  },
+  {
+    "id": "home.subtitle2",
+    "defaultMessage": "从未如此迅速",
+    "message": "",
+    "files": [
+      "src/routes/home/Home.js"
+    ]
+  },
+  {
+    "id": "breadcrumb.dashboard",
+    "defaultMessage": "用户中心",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js",
+      "src/routes/order/Order.js",
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "breadcrumb.invite",
+    "defaultMessage": "邀请",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "invite.information",
+    "defaultMessage": "通过邀请朋友一起来使用番茄网络，当对方付费购买后，您和朋友都将获得30天的免费使用时长，该部分使用时长和付费购买的服务一致，只是不可退款",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "invite.invitee",
+    "defaultMessage": "被邀请人",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "invite.isMember",
+    "defaultMessage": "已成为会员",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "invite.isNotMember",
+    "defaultMessage": "未成为会员",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "invite.paging",
+    "defaultMessage": "共{count}条",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "invite.state",
+    "defaultMessage": "状态",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "invite.table.title",
+    "defaultMessage": "我的邀请",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "invite.time",
+    "defaultMessage": "注册时间",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "invite.timeFormat",
+    "defaultMessage": "{year}年 {month}月 {date}日 - {hour}:{minute}:{second}",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "invite.title",
+    "defaultMessage": "邀请链接",
+    "message": "",
+    "files": [
+      "src/routes/invite/Invite.js"
+    ]
+  },
+  {
+    "id": "plan.checkout",
+    "defaultMessage": "续费",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.duration",
+    "defaultMessage": "购买时长",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.fee",
+    "defaultMessage": "费用",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.name",
+    "defaultMessage": "番茄网络 for Mac",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.onemonth",
+    "defaultMessage": "1个月",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.oneyear",
+    "defaultMessage": "1年(优惠10%)",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.product",
+    "defaultMessage": "产品名称",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.sixmonth",
+    "defaultMessage": "半年(优惠5%)",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.step1",
+    "defaultMessage": "选择配置",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.step2",
+    "defaultMessage": "订单结算",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.step3",
+    "defaultMessage": "续费成功",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "plan.threemonth",
+    "defaultMessage": "3个月",
+    "message": "",
+    "files": [
+      "src/routes/makePlan/MakePan.js"
+    ]
+  },
+  {
+    "id": "breadcrumb.orderDetails",
+    "defaultMessage": "订单详情",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "breadcrumb.orders",
+    "defaultMessage": "所有订单",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js",
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "order.checkout",
+    "defaultMessage": "支付",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.createTime",
+    "defaultMessage": "创建时间：",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.description",
+    "defaultMessage": "详情",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.duration",
+    "defaultMessage": "购买时长：{count}个月",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.id",
+    "defaultMessage": "订单编号：",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.name",
+    "defaultMessage": "番茄网络加速代理",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.price",
+    "defaultMessage": "价格",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.product",
+    "defaultMessage": "产品名称",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.state",
+    "defaultMessage": "订单状态：",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.state.cancel",
+    "defaultMessage": "已取消",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.state.done",
+    "defaultMessage": "已完成",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.state.pending",
+    "defaultMessage": "待支付",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.timeFormat",
+    "defaultMessage": "{year}年 {month}月 {date}日",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "order.total",
+    "defaultMessage": "应付总额：",
+    "message": "",
+    "files": [
+      "src/routes/order/Order.js"
+    ]
+  },
+  {
+    "id": "orders.action",
+    "defaultMessage": "操作",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.cancel",
+    "defaultMessage": "已取消",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.createTime",
+    "defaultMessage": "创建时间",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.details",
+    "defaultMessage": "详情",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.done",
+    "defaultMessage": "已完成",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.name",
+    "defaultMessage": "番茄网络加速服务",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.next",
+    "defaultMessage": "下一页",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.pending",
+    "defaultMessage": "待支付",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.prev",
+    "defaultMessage": "上一页",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.price",
+    "defaultMessage": "价格",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.product",
+    "defaultMessage": "产品",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.state",
+    "defaultMessage": "状态",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "orders.timeFormat",
+    "defaultMessage": "{year}年 {month}月 {date}日 - {hour}:{minute}:{second}",
+    "message": "",
+    "files": [
+      "src/routes/orders/Orders.js"
+    ]
+  },
+  {
+    "id": "signin.email",
+    "defaultMessage": "邮箱",
+    "message": "",
+    "files": [
+      "src/routes/signin/Signin.js"
+    ]
+  },
+  {
+    "id": "signin.forgotPassword",
+    "defaultMessage": "忘记密码",
+    "message": "",
+    "files": [
+      "src/routes/signin/Signin.js"
+    ]
+  },
+  {
+    "id": "signin.login",
+    "defaultMessage": "登录",
+    "message": "",
+    "files": [
+      "src/routes/signin/Signin.js"
+    ]
+  },
+  {
+    "id": "signin.password",
+    "defaultMessage": "密码",
+    "message": "",
+    "files": [
+      "src/routes/signin/Signin.js"
+    ]
+  },
+  {
+    "id": "signin.register",
+    "defaultMessage": "注册账号",
+    "message": "",
+    "files": [
+      "src/routes/signin/Signin.js"
+    ]
+  },
+  {
+    "id": "signin.title",
+    "defaultMessage": "登陆番茄网络",
+    "message": "",
+    "files": [
+      "src/routes/signin/Signin.js"
+    ]
+  },
+  {
+    "id": "signup.email",
+    "defaultMessage": "邮箱",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signup.emailPlaceholder",
+    "defaultMessage": "不推荐使用qq邮箱,可能无法收到邮件",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signup.password",
+    "defaultMessage": "密码",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signup.register",
+    "defaultMessage": "注册",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signup.subtitle",
+    "defaultMessage": "填写信息",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signup.title",
+    "defaultMessage": "注册番茄网络",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signup.toLogin",
+    "defaultMessage": "已有账号?点击登录",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signup.tos1",
+    "defaultMessage": "我已阅读并接受",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signup.tos2",
+    "defaultMessage": "服务协议",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "tos.privacy1",
+    "defaultMessage": "1. 注册邮箱（以确定用户身份）",
+    "message": "",
+    "files": [
+      "src/routes/termsOfService/TermsOfService.js"
+    ]
+  },
+  {
+    "id": "tos.privacy2",
+    "defaultMessage": "2. 番茄网络版本，以及设备的唯一标示",
+    "message": "",
+    "files": [
+      "src/routes/termsOfService/TermsOfService.js"
+    ]
+  },
+  {
+    "id": "tos.privacy3",
+    "defaultMessage": "3. 番茄网络客户端与服务器的连接延迟，丢包率，路由信息（用来改善我们的服务）",
+    "message": "",
+    "files": [
+      "src/routes/termsOfService/TermsOfService.js"
+    ]
+  },
+  {
+    "id": "tos.right",
+    "defaultMessage": "如果因用户发送垃圾邮件,下载盗版软件,音像制品等行为造成番茄网络被投诉或服务器IP被封, 番茄网络有权关闭用户账号，并返还未使用账户余额(扣除番茄网络的损失费用后)",
+    "message": "",
+    "files": [
+      "src/routes/termsOfService/TermsOfService.js"
+    ]
+  },
+  {
+    "id": "tos.subtitlePrivacy",
+    "defaultMessage": "番茄网络会使用用户的以下信息:",
+    "message": "",
+    "files": [
+      "src/routes/termsOfService/TermsOfService.js"
+    ]
+  },
+  {
+    "id": "tos.title",
+    "defaultMessage": "番茄网络服务协议",
+    "message": "",
+    "files": [
+      "src/routes/termsOfService/TermsOfService.js"
+    ]
+  },
+  {
+    "id": "tos.titlePrivacy",
+    "defaultMessage": "隐私声明",
+    "message": "",
+    "files": [
+      "src/routes/termsOfService/TermsOfService.js"
+    ]
+  },
+  {
+    "id": "tos.titleRight",
+    "defaultMessage": "番茄网络保留以下权利",
+    "message": "",
+    "files": [
+      "src/routes/termsOfService/TermsOfService.js"
+    ]
+  }
+]

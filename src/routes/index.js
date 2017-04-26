@@ -29,7 +29,6 @@ export default {
     require('./signup').default,
     require('./termsOfService').default,
     require('./invite').default,
-    // require('./signup').default,
 
     // Wildcard routes, e.g. { path: '*', ... } (must go last)
     require('./notFound').default,

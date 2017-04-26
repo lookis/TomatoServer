@@ -20,7 +20,6 @@ export default {
 
   action() {
     const membership = {
-      mode: '普通',
       due: new Date(),
     }
     const me = {

@@ -73,6 +73,7 @@ const config = {
             // Adds __self attribute to JSX which React will use for some warnings
             // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx-self
             ...isDebug ? ['transform-react-jsx-self'] : [],
+            'react-intl',
           ],
         },
       },
@@ -127,6 +128,11 @@ const config = {
           limit: 10000,
         },
       },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader',
+      },
     ],
   },
 
@@ -159,7 +165,7 @@ const clientConfig = {
   target: 'web',
 
   entry: {
-    client: ['babel-polyfill', './src/client.js'],
+    client: ['babel-polyfill', './src/clientLoader.js'],
   },
 
   output: {

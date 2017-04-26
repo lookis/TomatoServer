@@ -8,7 +8,25 @@
  */
 
 import React from 'react';
-import Link from '../../components/Link';
+import { defineMessages, FormattedMessage } from 'react-intl';
+
+const messages = defineMessages({
+  title: {
+    id: 'contact.title',
+    defaultMessage: '联系我们',
+    description: 'breadcrumb of page',
+  },
+  emailInformation: {
+    id: 'contact.emailInformation',
+    defaultMessage: '番茄网络目前唯一联系邮箱：',
+    description: 'email information',
+  },
+  otherInformation: {
+    id: 'contact.otherInformation',
+    defaultMessage: '如果有什么好的想法请联系我们，一经采纳会奖励使用时长哦',
+    description: 'other information',
+  },
+});
 
 export default class extends React.Component {
 
@@ -19,14 +37,14 @@ export default class extends React.Component {
           <div className="col-md-12">
             <section className="widget">
               <header>
-                <h4><i className="fa fa-envelope-o" />&nbsp;&nbsp;联系我们</h4>
+                <h4><i className="fa fa-envelope-o" />&nbsp;&nbsp;<FormattedMessage {...messages.title} /></h4>
               </header>
               <div className="body" style={{ padding: `${20}px` }}>
                 <p>
-                  番茄网络目前唯一联系邮箱：<a href="mailto:tomato@protonmail.com">tomato@protonmail.com</a>
+                  <FormattedMessage {...messages.emailInformation} /><a href="mailto:tomato@protonmail.com">tomato@protonmail.com</a>
                 </p>
                 <ol>
-                  <li>如果有什么好的想法请联系我们，一经采纳会奖励使用时长哦</li>
+                  <li><FormattedMessage {...messages.otherInformation} /></li>
                 </ol>
               </div>
             </section>

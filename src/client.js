@@ -12,11 +12,21 @@ import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
 import queryString from 'query-string';
 import { createPath } from 'history/PathUtils';
+import { addLocaleData } from 'react-intl';
+import en from 'react-intl/locale-data/en';
+import zh from 'react-intl/locale-data/zh';
 import history from './core/history';
 import App from './components/App';
+import configureStore from './store/configureStore';
 import { updateMeta } from './core/DOMUtils';
 import { ErrorReporter, deepForceUpdate } from './core/devUtils';
+import createApolloClient from './core/createApolloClient';
 
+const apolloClient = createApolloClient();
+
+[en, zh].forEach(addLocaleData);
+
+const store = configureStore(window.APP_STATE, { history, apolloClient });
 /* eslint-disable global-require */
 
 // Global (context) variables that can be easily accessed from any React component
@@ -29,6 +39,11 @@ const context = {
     const removeCss = styles.map(x => x._insertCss());
     return () => { removeCss.forEach(f => f()); };
   },
+  // For react-apollo
+  client: apolloClient,
+  // Initialize a new Redux store
+  // http://redux.js.org/docs/basics/UsageWithReact.html
+  store,
 };
 
 // Switch off the native scroll restoration behavior and handle it manually
@@ -107,8 +122,10 @@ async function onLocationChange(location, action) {
     // it finds the first route that matches provided URL path string
     // and whose action method returns anything other than `undefined`.
     const route = await router.resolve({
+      ...context,
       path: location.pathname,
       query: queryString.parse(location.search),
+      locale: store.getState().intl.locale,
     });
 
     // Prevent multiple page renders during the routing process
@@ -144,10 +161,20 @@ async function onLocationChange(location, action) {
   }
 }
 
-// Handle client-side navigation by using HTML5 History API
-// For more information visit https://github.com/mjackson/history#readme
-history.listen(onLocationChange);
-onLocationChange(currentLocation);
+let isHistoryObserved = false;
+export default function main() {
+  // Handle client-side navigation by using HTML5 History API
+  // For more information visit https://github.com/mjackson/history#readme
+  currentLocation = history.location;
+  if (!isHistoryObserved) {
+    isHistoryObserved = true;
+    history.listen(onLocationChange);
+  }
+  onLocationChange(currentLocation);
+}
+
+// globally accesible entry point
+window.RSK_ENTRY = main;
 
 // Handle errors that might happen after rendering
 // Display the error in full-screen for development mode
@@ -161,9 +188,11 @@ if (__DEV__) {
 
 // Enable Hot Module Replacement (HMR)
 if (module.hot) {
-  module.hot.accept('./core/router', () => {
+  module.hot.accept('./core/router', async () => {
     router = require('./core/router').default;
 
+    currentLocation = history.location;
+    await onLocationChange(currentLocation);
     if (appInstance) {
       try {
         // Force-update the whole tree, including components that refuse to update
@@ -172,10 +201,7 @@ if (module.hot) {
         appInstance = null;
         document.title = `Hot Update Error: ${error.message}`;
         ReactDOM.render(<ErrorReporter error={error} />, container);
-        return;
       }
     }
-
-    onLocationChange(currentLocation);
   });
 }

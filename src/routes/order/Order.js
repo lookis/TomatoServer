@@ -9,14 +9,86 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import Link from '../../components/Link';
+
+const messages = defineMessages({
+  checkout: {
+    id: 'order.checkout',
+    defaultMessage: '支付',
+  },
+  breadcrumbDashboard: {
+    id: 'breadcrumb.dashboard',
+    defaultMessage: '用户中心',
+  },
+  breadcrumbOrders: {
+    id: 'breadcrumb.orders',
+    defaultMessage: '所有订单',
+  },
+  breadcrumbOrderDetails: {
+    id: 'breadcrumb.orderDetails',
+    defaultMessage: '订单详情',
+  },
+  product: {
+    id: 'order.product',
+    defaultMessage: '产品名称',
+  },
+  description: {
+    id: 'order.description',
+    defaultMessage: '详情',
+  },
+  price: {
+    id: 'order.price',
+    defaultMessage: '价格',
+  },
+  name: {
+    id: 'order.name',
+    defaultMessage: '番茄网络加速代理',
+  },
+  duration: {
+    id: 'order.duration',
+    defaultMessage: '购买时长：{count}个月',
+  },
+  orderId: {
+    id: 'order.id',
+    defaultMessage: '订单编号：',
+  },
+  orderCreateTime: {
+    id: 'order.createTime',
+    defaultMessage: '创建时间：',
+  },
+  orderTimeFormat: {
+    id: 'order.timeFormat',
+    defaultMessage: '{year}年 {month}月 {date}日',
+  },
+  orderState: {
+    id: 'order.state',
+    defaultMessage: '订单状态：',
+  },
+  orderCancel: {
+    id: 'order.state.cancel',
+    defaultMessage: '已取消',
+  },
+  orderPending: {
+    id: 'order.state.pending',
+    defaultMessage: '待支付',
+  },
+  orderDone: {
+    id: 'order.state.done',
+    defaultMessage: '已完成',
+  },
+  orderTotal: {
+    id: 'order.total',
+    defaultMessage: '应付总额：',
+  },
+});
 
 export default class extends React.Component {
   static propTypes = {
     order: PropTypes.shape({
       id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
       count: PropTypes.number.isRequired,
       price: PropTypes.number.isRequired,
       state: PropTypes.string.isRequired,
@@ -33,7 +105,7 @@ export default class extends React.Component {
             className="btn btn-lg btn-success"
           >
             <span className="my-small-circle"><i className="fa fa-credit-card" /></span>
-            <small>&nbsp;支付</small>
+            <small>&nbsp;<FormattedMessage {...messages.checkout} /></small>
           </button>
         </p>
       );
@@ -50,15 +122,15 @@ export default class extends React.Component {
               <ol className="breadcrumb">
                 <li>
                   <Link to={'/dashboard'}>
-                    <i className="fa fa-user" /> 用户中心
-                    </Link>
+                    <i className="fa fa-user" /> <FormattedMessage {...messages.breadcrumbDashboard} />
+                  </Link>
                 </li>
                 <li>
                   <Link to={'/orders'}>
-                    <i className="fa fa-book" /> 所有订单
-                    </Link>
+                    <i className="fa fa-book" /> <FormattedMessage {...messages.breadcrumbOrders} />
+                  </Link>
                 </li>
-                <li className="active">订单详情</li>
+                <li className="active"><FormattedMessage {...messages.breadcrumbOrderDetails} /></li>
               </ol>
             </section>
           </div>
@@ -72,17 +144,22 @@ export default class extends React.Component {
                   <table className="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>产品名称</th>
-                        <th>详情</th>
-                        <th>价格</th>
+                        <th><FormattedMessage {...messages.product} /></th>
+                        <th><FormattedMessage {...messages.description} /></th>
+                        <th><FormattedMessage {...messages.price} /></th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>{this.props.order.name}</td>
+                        <td><FormattedMessage {...messages.name} /></td>
                         <td>
                           <p className="gray" style={{ paddingLeft: `${10}px` }}>
-                              购买时长:{this.props.order.count}个月<br />
+                            <FormattedMessage
+                              values={{
+                                count: this.props.order.count,
+                              }}
+                              {...messages.duration}
+                            />
                           </p>
                         </td>
                         <td>¥{this.props.order.price}</td>
@@ -91,30 +168,38 @@ export default class extends React.Component {
                   </table>
                   <div style={{ paddingLeft: `${20}px` }}>
                     <p>
-                      <label>订单编号：</label>
+                      <label><FormattedMessage {...messages.orderId} /></label>
                       <span className="gray">{this.props.order.id}</span>
                     </p>
                     <p>
-                      <label>创建时间：</label>
+                      <label><FormattedMessage {...messages.orderCreateTime} /></label>
                       <span className="gray">
-                        {this.props.order.createAt.getFullYear()}年
-                          {this.props.order.createAt.getMonth() + 1}月
-                          {this.props.order.createAt.getDate()}日
-                        </span>
+                        <FormattedMessage
+                          values={{
+                            year: this.props.order.createAt.getFullYear(),
+                            month: this.props.order.createAt.getMonth() + 1,
+                            date: this.props.order.createAt.getDate(),
+                          }}
+                          {...messages.orderTimeFormat}
+                        />
+                      </span>
                     </p>
                     <p>
-                      <label>订单状态：</label>
+                      <label><FormattedMessage {...messages.orderState} /></label>
                       <span
                         style={{ fontWeight: 200, paddingLeft: `${10}px`, letterSpacing: `${5}px`, lineHeight: `${20}px`, fontSize: `${14}px` }}
                         className={`label label-${this.props.order.state === 'cancel' ? 'default' : 'success'}`}
                       >
-                        {this.props.order.state === 'cancel' ? '已取消' :
-                            this.props.order.state === 'pending' ? '待支付' : '已完成' }
+                        {this.props.order.state === 'cancel' ? <FormattedMessage {...messages.orderCancel} /> :
+                            this.props.order.state === 'pending' ? <FormattedMessage {...messages.orderPending} /> :
+                            <FormattedMessage {...messages.orderDone} /> }
                       </span>
                     </p>
                     <div id="fee">
                       <input type="hidden" name="total_due" value="18" />
-                      <p><label>应付总额：</label>¥{this.props.order.price}.00</p>
+                      <p><label>
+                        <FormattedMessage {...messages.orderTotal} /></label>
+                        ¥{this.props.order.price}.00</p>
                     </div>
                     {this.payButton()}
                   </div>

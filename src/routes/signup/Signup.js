@@ -7,14 +7,54 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import { intlShape, injectIntl, defineMessages, FormattedMessage } from 'react-intl';
 import Link from '../../components/Link';
 import fetch from '../../core/fetch';
 
-export default class extends React.Component {
+const messages = defineMessages({
+  title: {
+    id: 'signup.title',
+    defaultMessage: '注册番茄网络',
+  },
+  subtitle: {
+    id: 'signup.subtitle',
+    defaultMessage: '填写信息',
+  },
+  email: {
+    id: 'signup.email',
+    defaultMessage: '邮箱',
+  },
+  emailPlaceholder: {
+    id: 'signup.emailPlaceholder',
+    defaultMessage: '不推荐使用qq邮箱,可能无法收到邮件',
+  },
+  password: {
+    id: 'signup.password',
+    defaultMessage: '密码',
+  },
+  tos1: {
+    id: 'signup.tos1',
+    defaultMessage: '我已阅读并接受',
+  },
+  tos2: {
+    id: 'signup.tos2',
+    defaultMessage: '服务协议',
+  },
+  register: {
+    id: 'signup.register',
+    defaultMessage: '注册',
+  },
+  toLogin: {
+    id: 'signup.toLogin',
+    defaultMessage: '已有账号?点击登录',
+  },
+})
+
+class Signup extends React.Component {
 
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    intl: intlShape.isRequired,
   };
 
   constructor() {
@@ -53,11 +93,12 @@ export default class extends React.Component {
   }
 
   render() {
+    const { formatMessage } = this.props.intl;
     return (
       <div className="container" style={{ marginTop: `${60}px` }}>
         <div className="row">
           <div className="col-md-12">
-            <h2 className="page-title">注册番茄网络<small>填写信息</small>
+            <h2 className="page-title"><FormattedMessage {...messages.title} /><small><FormattedMessage {...messages.subtitle} /></small>
             </h2>
           </div>
         </div>
@@ -71,17 +112,17 @@ export default class extends React.Component {
                   onSubmit={e => this.handleSignup(e)}
                 >
                   <div className="form-group">
-                    <label className="col-sm-4 control-label" htmlFor="email">邮箱</label>
+                    <label className="col-sm-4 control-label" htmlFor="email"><FormattedMessage {...messages.email} /></label>
                     <div className="col-sm-5">
                       <input
-                        type="text" placeholder="不推荐使用qq邮箱,可能无法收到邮件" id="username" name="username"
+                        type="text" placeholder={formatMessage(messages.emailPlaceholder)} id="username" name="username"
                         className="form-control"
                         ref={(input) => { this.email = input; }}
                       />
                     </div>
                   </div>
                   <div className="form-group">
-                    <label className="col-sm-4 control-label" htmlFor="password">密码</label>
+                    <label className="col-sm-4 control-label" htmlFor="password"><FormattedMessage {...messages.password} /></label>
                     <div className="col-sm-5">
                       <input
                         type="password" id="password" name="password" className="form-control"
@@ -92,9 +133,9 @@ export default class extends React.Component {
                   <div className="form-group">
                     <div className="col-sm-offset-4 col-sm-4">
                       <span className="fa fa-check-square-o">
-                          我已阅读并接受
-                        </span>
-                      <Link to={'/signup#tos-dialog'} data-toggle="modal" data-target="#tos-dialog">服务协议</Link>
+                        <FormattedMessage {...messages.tos1} />
+                      </span>
+                      <Link to={'/signup#tos-dialog'} data-toggle="modal" data-target="#tos-dialog"><FormattedMessage {...messages.tos2} /></Link>
                     </div>
                   </div>
                   <div className="form-group" style={{ marginTop: `${20}px` }}>
@@ -107,11 +148,11 @@ export default class extends React.Component {
                           <span className="small-circle">
                             <i className="fa fa-caret-right" />
                           </span>
-                          <small>注册</small>
+                          <small><FormattedMessage {...messages.register} /></small>
                         </button>
                       </p>
                       <p>
-                        <Link to={'/signin'}>已有账号?点击登录</Link>
+                        <Link to={'/signin'}><FormattedMessage {...messages.toLogin} /></Link>
                       </p>
                     </div>
                   </div>
@@ -124,3 +165,5 @@ export default class extends React.Component {
     );
   }
 }
+
+export default injectIntl(Signup);

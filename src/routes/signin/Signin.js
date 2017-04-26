@@ -7,19 +7,48 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import { intlShape, injectIntl, defineMessages, FormattedMessage } from 'react-intl';
 import Link from '../../components/Link';
 
-export default class extends React.Component {
+const messages = defineMessages({
+  title: {
+    id: 'signin.title',
+    defaultMessage: '登陆番茄网络',
+  },
+  email: {
+    id: 'signin.email',
+    defaultMessage: '邮箱',
+  },
+  password: {
+    id: 'signin.password',
+    defaultMessage: '密码',
+  },
+  login: {
+    id: 'signin.login',
+    defaultMessage: '登录',
+  },
+  register: {
+    id: 'signin.register',
+    defaultMessage: '注册账号',
+  },
+  forgotPassword: {
+    id: 'signin.forgotPassword',
+    defaultMessage: '忘记密码',
+  },
+});
+
+class Signin extends React.Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    intl: intlShape.isRequired,
   };
   render() {
+    const { formatMessage } = this.props.intl;
     return (
       <div className="single-widget-container">
         <section className="widget login-widget">
           <header className="text-align-center">
-            <h4>登录番茄网络</h4>
+            <h4><FormattedMessage {...messages.title} /></h4>
           </header>
           <div className="body">
             <div className="alert alert-danger"><p>邮箱地址格式错误:123</p></div>
@@ -30,7 +59,7 @@ export default class extends React.Component {
                     <span className="input-group-addon">
                       <i className="fa fa-user" />
                     </span>
-                    <input id="username" name="username" type="email" className="form-control input-lg" placeholder="邮箱" />
+                    <input id="username" name="username" type="email" className="form-control input-lg" placeholder={formatMessage(messages.email)} />
                   </div>
                 </div>
                 <div className="form-group">
@@ -39,7 +68,7 @@ export default class extends React.Component {
                     <span className="input-group-addon">
                       <i className="fa fa-lock" />
                     </span>
-                    <input id="password" name="password" type="password" className="form-control input-lg" placeholder="密码" />
+                    <input id="password" name="password" type="password" className="form-control input-lg" placeholder={formatMessage(messages.password)} />
                   </div>
                 </div>
               </fieldset>
@@ -48,11 +77,14 @@ export default class extends React.Component {
                   <span className="small-circle">
                     <i className="fa fa-caret-right" />
                   </span>
-                  <small>登录</small>
+                  <small><FormattedMessage {...messages.login} /></small>
                 </button>
                 <div className="forgot">
-                  <Link to={'/signup'}>注册账号</Link>
-                  <Link to={'/forgot_password'}>忘记密码?</Link>
+                  <Link to={'/signup'}>
+                    <FormattedMessage {...messages.register} />
+                  </Link> <Link to={'/forgot_password'}>
+                    <FormattedMessage {...messages.forgotPassword} />
+                  </Link>
                 </div>
               </div>
             </form>
@@ -62,3 +94,5 @@ export default class extends React.Component {
     );
   }
 }
+
+export default injectIntl(Signin);

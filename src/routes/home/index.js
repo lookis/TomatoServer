@@ -10,7 +10,6 @@
 import React from 'react';
 import Header from '../../components/Header';
 import Home from './Home';
-// import fetch from '../../core/fetch';
 import Layout from '../../components/Layout';
 
 export default {
@@ -34,9 +33,10 @@ export default {
     const me = {
       id: 'user_id',
       email: 'lookisliu@gmail.com',
-    }
+    };
+
     return {
-      title: '番茄网络',
+      title: '首页',
       component: <Layout>
         <Header me={me} location={this.path} />
         <Home />

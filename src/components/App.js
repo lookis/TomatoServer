@@ -7,12 +7,24 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
+import React, { Children } from 'react';
+import PropTypes from 'prop-types';
+import { IntlProvider } from 'react-intl';
+import deepForceUpdate from 'react-deep-force-update';
 
 const ContextType = {
   // Enables critical path CSS rendering
   // https://github.com/kriasoft/isomorphic-style-loader
   insertCss: PropTypes.func.isRequired,
+  // Integrate Redux
+  // http://redux.js.org/docs/basics/UsageWithReact.html
+  store: PropTypes.shape({
+    subscribe: PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    getState: PropTypes.func.isRequired,
+  }).isRequired,
+  // Apollo Client
+  client: PropTypes.object.isRequired,
 };
 
 /**
@@ -50,10 +62,49 @@ class App extends React.PureComponent {
     return this.props.context;
   }
 
+  componentDidMount() {
+    const store = this.props.context && this.props.context.store;
+    if (store) {
+      this.unsubscribe = store.subscribe(() => {
+        const state = store.getState();
+        const newIntl = state.intl;
+        if (this.intl !== newIntl) {
+          this.intl = newIntl;
+          if (__DEV__) {
+            // eslint-disable-next-line no-console
+            console.log('Intl changed — Force rendering');
+          }
+          deepForceUpdate(this);
+        }
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.unsubscribe) {
+      this.unsubscribe();
+      this.unsubscribe = null;
+    }
+  }
+
   render() {
     // NOTE: If you need to add or modify header, footer etc. of the app,
     // please do that inside the Layout component.
-    return React.Children.only(this.props.children);
+    const store = this.props.context && this.props.context.store;
+    const state = store && store.getState();
+    this.intl = (state && state.intl) || {};
+    const { initialNow, locale, messages } = this.intl;
+    const localeMessages = (messages && messages[locale]) || {};
+    return (
+      <IntlProvider
+        initialNow={initialNow}
+        locale={locale}
+        messages={localeMessages}
+        defaultLocale="zh-CN"
+      >
+        {Children.only(this.props.children)}
+      </IntlProvider>
+    );
   }
 
 }
