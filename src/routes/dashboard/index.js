@@ -22,15 +22,11 @@ export default {
     const membership = {
       due: new Date(),
     }
-    const me = {
-      id: 'user_id',
-      email: 'lookisliu@gmail.com',
-    }
     return {
       title,
       component: <Layout>
-        <Header me={me} location={this.path} />
-        <Dashboard membership={membership} me={me} />
+        <Header location={this.path} />
+        <Dashboard membership={membership} />
       </Layout>,
     };
   },

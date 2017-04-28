@@ -11,6 +11,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import md5 from 'md5';
 import { defineMessages, FormattedMessage } from 'react-intl';
+import { graphql } from 'react-apollo';
+import query from './header.graphql';
 import Link from '../Link';
 
 const messages = defineMessages({
@@ -69,10 +71,17 @@ const messages = defineMessages({
 class Header extends React.Component {
   static propTypes = {
     location: PropTypes.string.isRequired,
-    me: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      email: PropTypes.string.isRequired,
+    data: PropTypes.shape({
+      me: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+      }),
     }).isRequired,
+  }
+
+  handleSignout = (e) => {
+    e.preventDefault();
+    this.signout.submit();
   }
 
   nologin() {
@@ -108,7 +117,7 @@ class Header extends React.Component {
     );
   }
 
-  logined() {
+  logined(me) {
     return (
       <nav id="dashboard-nav" className="tomato-main-nav navbar navbar-default" role="navigation">
         <div className="container">
@@ -138,7 +147,7 @@ class Header extends React.Component {
             <ul className="nav navbar-nav navbar-right">
               <li className="dropdown">
                 <Link to={'/dashboard#'} style={{ padding: 0, paddingTop: `${3}px` }} className="dropdown-toggle" data-toggle="dropdown">
-                  <img style={{ width: `${32}px`, height: `${32}px` }} className="img-rounded" alt="avatar" src={`https://www.gravatar.com/avatar/${md5(this.props.me.email)}`} />&nbsp;&nbsp;{this.props.me.email}<b className="caret" /></Link>
+                  <img style={{ width: `${32}px`, height: `${32}px` }} className="img-rounded" alt="avatar" src={`https://www.gravatar.com/avatar/${md5(me.email)}`} />&nbsp;&nbsp;{me.email}<b className="caret" /></Link>
                 <ul className="dropdown-menu" role="menu">
                   <li>
                     <Link to={'/orders'}>
@@ -158,7 +167,8 @@ class Header extends React.Component {
                     </Link></li>
                   <li className="divider" />
                   <li>
-                    <Link to={'/signout'}>
+                    <form action="/signout" method="post" ref={(signout) => { this.signout = signout; }} />
+                    <Link to={'/'} onClick={e => this.handleSignout(e)}>
                       <i className="fa fa-sign-out" />
                       &nbsp;&nbsp;<FormattedMessage {...messages.signout} />
                     </Link>
@@ -173,11 +183,12 @@ class Header extends React.Component {
   }
 
   render() {
-    if (this.props.me === undefined) {
+    const { data: { me } } = this.props;
+    if (!me) {
       return this.nologin();
     }
-    return this.logined();
+    return this.logined(me);
   }
 }
 
-export default Header;
+export default graphql(query)(Header);

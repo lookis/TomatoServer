@@ -1147,5 +1147,29 @@
     "files": [
       "src/routes/termsOfService/TermsOfService.js"
     ]
+  },
+  {
+    "id": "signup.generalError",
+    "defaultMessage": "出错了，请稍后再试",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signup.uniqueViolation",
+    "defaultMessage": "该邮箱已注册",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signup.validationError",
+    "defaultMessage": "邮箱格式错误",
+    "message": "",
+    "files": [
+      "src/routes/signup/Signup.js"
+    ]
   }
 ]

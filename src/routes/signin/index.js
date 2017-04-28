@@ -17,10 +17,10 @@ export default {
 
   path: '/signin',
 
-  action() {
+  action(ctx) {
     return {
       title,
-      component: <Layout><Signin /></Layout>,
+      component: <Layout><Signin {...ctx.query} /></Layout>,
     };
   },
 

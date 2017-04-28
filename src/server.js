@@ -84,8 +84,8 @@ if (__DEV__) {
 app.post('/signin',
   passport.authenticate('local', {
     session: false,
-    failureRedirect: '/signin',
-    failureFlash: true }),
+    failureRedirect: '/signin?e',
+    failureFlash: false }),
   (req, res) => {
     const expiresIn = 60 * 60 * 24 * 180; // 180 days
     const token = jwt.sign(req.user, auth.jwt.secret, { expiresIn });
@@ -93,6 +93,11 @@ app.post('/signin',
     res.redirect('/');
   },
 );
+
+app.post('/signout', (req, res) => {
+  res.clearCookie('t');
+  res.redirect('/');
+});
 
 //
 // Register API middleware
@@ -216,7 +221,7 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   const html = ReactDOM.renderToStaticMarkup(
     <Html
       title="Internal Server Error"
-      keywords={[]}
+      keywords=""
       description={err.message}
       styles={[{ id: 'css', cssText: errorPageStyle._getCss() }]} // eslint-disable-line no-underscore-dangle
       lang={locale}

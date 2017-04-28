@@ -30,15 +30,11 @@ export default {
     // });
     // const { data } = await resp.json();
     // if (!data || !data.news) throw new Error('Failed to load the news feed.');
-    const me = {
-      id: 'user_id',
-      email: 'lookisliu@gmail.com',
-    };
 
     return {
       title: '首页',
       component: <Layout>
-        <Header me={me} location={this.path} />
+        <Header location={this.path} />
         <Home />
       </Layout>,
     };

@@ -19,11 +19,6 @@ export default {
   path: '/orders',
 
   action() {
-    const me = {
-      id: 'user_id',
-      email: 'lookisliu@gmail.com',
-    };
-
     const order = {
       id: 'order_id',
       count: 1,
@@ -37,7 +32,7 @@ export default {
     return {
       title,
       component: <Layout>
-        <Header me={me} location={this.path} />
+        <Header location={this.path} />
         <Orders orders={orders} />
       </Layout>,
     };

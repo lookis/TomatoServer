@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { intlShape, injectIntl, defineMessages, FormattedMessage } from 'react-intl';
 import Link from '../../components/Link';
 
@@ -36,12 +37,56 @@ const messages = defineMessages({
     id: 'signin.forgotPassword',
     defaultMessage: '忘记密码',
   },
+  errorUsername: {
+    id: 'signin.error.username.empty',
+    defaultMessage: '请填写用户名',
+  },
+  errorPassword: {
+    id: 'signin.error.password.empty',
+    defaultMessage: '请填写密码',
+  },
+  errorLogin: {
+    id: 'signin.error.credential',
+    defaultMessage: '用户名或者密码错，请重试',
+  },
+  generalError: {
+    id: 'signup.generalError',
+    defaultMessage: '出错了，请稍后再试',
+  },
 });
 
 class Signin extends React.Component {
   static propTypes = {
     intl: intlShape.isRequired,
+    e: PropTypes.string,
   };
+
+  static defaultProps = {
+    e: undefined,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: props.e !== undefined ? 'errorLogin' : null,
+    };
+  }
+
+  handleSignin = () => {
+    if (this.email.value.length === 0) {
+      this.setState({
+        error: 'errorUsername',
+      });
+      return false;
+    } else if (this.password.value.length === 0) {
+      this.setState({
+        error: 'errorPassword',
+      });
+      return false;
+    }
+    return true;
+  }
+
   render() {
     const { formatMessage } = this.props.intl;
     return (
@@ -51,15 +96,26 @@ class Signin extends React.Component {
             <h4><FormattedMessage {...messages.title} /></h4>
           </header>
           <div className="body">
-            <div className="alert alert-danger"><p>邮箱地址格式错误:123</p></div>
-            <form id="main-form" className="no-margin" method="post">
+            {this.state.error ? <div className="alert alert-danger">
+              <p><FormattedMessage
+                {...
+                  this.state.error in messages ?
+                    messages[this.state.error] : messages.generalError
+                }
+              /></p>
+            </div> : <div />}
+            <form id="main-form" className="no-margin" method="post" action="/signin" onSubmit={e => this.handleSignin(e)}>
               <fieldset>
                 <div className="form-group ">
                   <div className="input-group input-group-lg">
                     <span className="input-group-addon">
                       <i className="fa fa-user" />
                     </span>
-                    <input id="username" name="username" type="email" className="form-control input-lg" placeholder={formatMessage(messages.email)} />
+                    <input
+                      id="username" name="username" type="email" className="form-control input-lg"
+                      placeholder={formatMessage(messages.email)}
+                      ref={(username) => { this.email = username; }}
+                    />
                   </div>
                 </div>
                 <div className="form-group">
@@ -68,7 +124,11 @@ class Signin extends React.Component {
                     <span className="input-group-addon">
                       <i className="fa fa-lock" />
                     </span>
-                    <input id="password" name="password" type="password" className="form-control input-lg" placeholder={formatMessage(messages.password)} />
+                    <input
+                      id="password" name="password" type="password" className="form-control input-lg"
+                      placeholder={formatMessage(messages.password)}
+                      ref={(password) => { this.password = password; }}
+                    />
                   </div>
                 </div>
               </fieldset>

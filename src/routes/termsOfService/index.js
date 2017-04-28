@@ -19,15 +19,10 @@ export default {
   path: '/terms_of_service',
 
   action() {
-    const me = {
-      id: 'user_id',
-      email: 'lookisliu@gmail.com',
-    };
-
     return {
       title,
       component: <Layout>
-        <Header me={me} location={this.path} />
+        <Header location={this.path} />
         <TermsOfService />
       </Layout>,
     };

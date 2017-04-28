@@ -49,7 +49,19 @@ const messages = defineMessages({
     id: 'signup.toLogin',
     defaultMessage: '已有账号?点击登录',
   },
-})
+  'unique violation': {
+    id: 'signup.uniqueViolation',
+    defaultMessage: '该邮箱已注册',
+  },
+  'Validation error': {
+    id: 'signup.validationError',
+    defaultMessage: '邮箱格式错误',
+  },
+  generalError: {
+    id: 'signup.generalError',
+    defaultMessage: '出错了，请稍后再试',
+  },
+});
 
 class Signup extends React.Component {
 
@@ -66,7 +78,6 @@ class Signup extends React.Component {
 
   handleSignup = (e) => {
     e.preventDefault();
-
     fetch('/graphql', {
       method: 'post',
       headers: {
@@ -74,8 +85,8 @@ class Signup extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        mutation: `
-          {
+        query: `
+          mutation {
             createAccount(email:"${this.email.value}", password: "${this.password.value}") {
               account {
                 id,
@@ -87,8 +98,20 @@ class Signup extends React.Component {
         `,
       }),
       credentials: 'include',
-    }).then((r) => {
+    }).then(resp => resp.json())
+    .then((r) => {
       console.log(r);
+      if (r.data && r.data.createAccount) {
+        if (r.data.createAccount.account) {
+          this.signinUsername.value = this.email.value;
+          this.signinPassword.value = this.password.value;
+          this.signin.submit();
+        } else {
+          this.setState({
+            error: r.data.createAccount.errors[0],
+          });
+        }
+      }
     });
   }
 
@@ -106,7 +129,18 @@ class Signup extends React.Component {
           <div className="col-md-12">
             <section className="widget">
               <div className="body">
-                <div className="alert alert-danger"><p>邮箱地址格式错误:123</p></div>
+                {this.state.error ? <div className="alert alert-danger">
+                  <p><FormattedMessage
+                    {...
+                    this.state.error in messages ?
+                    messages[this.state.error] : messages.generalError
+                  }
+                  /></p>
+                </div> : <div />}
+                <form id="signin-form" action="/signin" method="post" ref={(signin) => { this.signin = signin; }}>
+                  <input type="hidden" name="username" ref={(username) => { this.signinUsername = username; }} />
+                  <input type="hidden" name="password" ref={(password) => { this.signinPassword = password; }} />
+                </form>
                 <form
                   method="post" id="reg-form" className="form-horizontal label-right"
                   onSubmit={e => this.handleSignup(e)}
@@ -115,7 +149,7 @@ class Signup extends React.Component {
                     <label className="col-sm-4 control-label" htmlFor="email"><FormattedMessage {...messages.email} /></label>
                     <div className="col-sm-5">
                       <input
-                        type="text" placeholder={formatMessage(messages.emailPlaceholder)} id="username" name="username"
+                        type="email" placeholder={formatMessage(messages.emailPlaceholder)} id="username" name="username"
                         className="form-control"
                         ref={(input) => { this.email = input; }}
                       />
