@@ -59,10 +59,12 @@ class Signin extends React.Component {
   static propTypes = {
     intl: intlShape.isRequired,
     e: PropTypes.string,
+    next: PropTypes.string,
   };
 
   static defaultProps = {
     e: undefined,
+    next: undefined,
   }
 
   constructor(props) {
@@ -106,6 +108,7 @@ class Signin extends React.Component {
             </div> : <div />}
             <form id="main-form" className="no-margin" method="post" action="/signin" onSubmit={e => this.handleSignin(e)}>
               <fieldset>
+                <input type="hidden" name="next" value={this.props.next} />
                 <div className="form-group ">
                   <div className="input-group input-group-lg">
                     <span className="input-group-addon">
@@ -119,7 +122,6 @@ class Signin extends React.Component {
                   </div>
                 </div>
                 <div className="form-group">
-
                   <div className="input-group input-group-lg">
                     <span className="input-group-addon">
                       <i className="fa fa-lock" />

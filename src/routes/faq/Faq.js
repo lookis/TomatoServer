@@ -179,8 +179,8 @@ export default class extends React.Component {
                   <div className="panel-body">
                     <p><FormattedMessage {...messages.question7Answer1} /></p>
                     <pre>
-                      <code>export http_proxy=http://127.0.0.1:9743/
-                      export https_proxy=http://127.0.0.1:9743/</code>
+                      <code>export http_proxy=http://127.0.0.1:1081/
+                      export https_proxy=http://127.0.0.1:1081/</code>
                     </pre>
                     <p><FormattedMessage {...messages.question7Answer2} /></p>
                     <p><FormattedMessage {...messages.question7Answer3} /></p>
