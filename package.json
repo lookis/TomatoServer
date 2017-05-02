@@ -26,6 +26,8 @@
     "express-request-language": "^1.1.9",
     "fastclick": "^1.0.6",
     "graphql": "^0.9.2",
+    "graphql-relay": "^0.5.1",
+    "graphql-sequelize": "^5.3.2",
     "graphql-tag": "^2.0.0",
     "history": "^4.6.1",
     "intl": "^1.2.5",

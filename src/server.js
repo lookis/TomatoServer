@@ -88,7 +88,9 @@ app.post('/signin',
     failureFlash: false }),
   (req, res) => {
     const expiresIn = 60 * 60 * 24 * 180; // 180 days
-    const token = jwt.sign(req.user, auth.jwt.secret, { expiresIn });
+    const token = jwt.sign({
+      id: req.user.id,
+    }, auth.jwt.secret, { expiresIn });
     const next = req.param('next');
     res.cookie('t', token, { maxAge: 1000 * expiresIn, httpOnly: true });
     if (next) {

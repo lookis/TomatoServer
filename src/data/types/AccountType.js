@@ -9,17 +9,17 @@
 
 import {
   GraphQLObjectType as ObjectType,
-  GraphQLID as ID,
-  GraphQLString as StringType,
-  GraphQLNonNull as NonNull,
 } from 'graphql';
 
+
+import { attributeFields } from 'graphql-sequelize';
+import Account from '../models/Account';
+
 const AccountType = new ObjectType({
-  name: 'Account',
-  fields: {
-    id: { type: new NonNull(ID) },
-    email: { type: StringType },
-  },
+  name: Account.name,
+  fields: attributeFields(Account, {
+    only: ['id', 'email', 'createdAt'],
+  }),
 });
 
 export default AccountType;

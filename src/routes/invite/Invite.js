@@ -11,6 +11,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import md5 from 'md5';
 import { defineMessages, FormattedMessage } from 'react-intl';
+import { graphql } from 'react-apollo';
+import query from './invite.graphql';
 import Link from '../../components/Link';
 import { host } from '../../config';
 
@@ -79,6 +81,7 @@ class Invite extends React.Component {
   };
 
   render() {
+    const { data: { me } } = this.props;
     return (
       <div className="container">
         <div className="row">
@@ -112,7 +115,7 @@ class Invite extends React.Component {
                       <caption><FormattedMessage {...messages.information} /></caption>
                       <tbody>
                         <tr>
-                          <th width="50%">http://{host}/signup?i={md5(this.props.me.email)}</th>
+                          <th width="50%">http://{host}/signup?i={md5(me.email)}</th>
                         </tr>
                       </tbody>
                     </table>
@@ -191,4 +194,4 @@ class Invite extends React.Component {
   }
 }
 
-export default Invite;
+export default graphql(query)(Invite);

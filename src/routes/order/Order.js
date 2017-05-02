@@ -92,7 +92,7 @@ export default class extends React.Component {
       count: PropTypes.number.isRequired,
       price: PropTypes.number.isRequired,
       state: PropTypes.string.isRequired,
-      createAt: PropTypes.object.isRequired,
+      createdAt: PropTypes.object.isRequired,
     }).isRequired,
   };
 
@@ -176,9 +176,9 @@ export default class extends React.Component {
                       <span className="gray">
                         <FormattedMessage
                           values={{
-                            year: this.props.order.createAt.getFullYear(),
-                            month: this.props.order.createAt.getMonth() + 1,
-                            date: this.props.order.createAt.getDate(),
+                            year: this.props.order.createdAt.getFullYear(),
+                            month: this.props.order.createdAt.getMonth() + 1,
+                            date: this.props.order.createdAt.getDate(),
                           }}
                           {...messages.orderTimeFormat}
                         />

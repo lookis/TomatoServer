@@ -1153,6 +1153,7 @@
     "defaultMessage": "出错了，请稍后再试",
     "message": "",
     "files": [
+      "src/routes/signin/Signin.js",
       "src/routes/signup/Signup.js"
     ]
   },
@@ -1170,6 +1171,30 @@
     "message": "",
     "files": [
       "src/routes/signup/Signup.js"
+    ]
+  },
+  {
+    "id": "signin.error.credential",
+    "defaultMessage": "用户名或者密码错，请重试",
+    "message": "",
+    "files": [
+      "src/routes/signin/Signin.js"
+    ]
+  },
+  {
+    "id": "signin.error.password.empty",
+    "defaultMessage": "请填写密码",
+    "message": "",
+    "files": [
+      "src/routes/signin/Signin.js"
+    ]
+  },
+  {
+    "id": "signin.error.username.empty",
+    "defaultMessage": "请填写用户名",
+    "message": "",
+    "files": [
+      "src/routes/signin/Signin.js"
     ]
   }
 ]

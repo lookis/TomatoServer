@@ -6,7 +6,6 @@ import {
 } from 'graphql';
 
 import Account from '../models/Account';
-
 import AccountType from '../types/AccountType';
 
 const createAccount = {
@@ -23,12 +22,14 @@ const createAccount = {
   }),
   args: {
     email: { type: new NonNull(StringType) },
+    inviter: { type: StringType },
     password: { type: new NonNull(StringType) },
   },
-  resolve(_, { email, password }) {
+  resolve(_, { email, inviter, password }) {
     return Account.create({
       email,
       password,
+      inviterId: inviter && inviter.length > 0 ? inviter : null,
     }).then(account => ({ account, errors: [] }))
       .catch(error => ({ account: null, errors: error.errors.map(e => e.type) }));
   },

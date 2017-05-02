@@ -17,10 +17,12 @@ export default {
 
   path: '/signup',
 
-  action() {
+  action(ctx) {
+    const { i } = ctx.query;
+
     return {
       title,
-      component: <Layout><Signup /></Layout>,
+      component: <Layout><Signup inviter={i} /></Layout>,
     };
   },
 

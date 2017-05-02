@@ -8,11 +8,21 @@
  */
 
 import sequelize from '../sequelize';
-import User from './Account';
+import Account from './Account';
+import Order from './Order';
+
+Account.belongsTo(Account, {
+  as: 'inviter',
+  onDelete: 'SET NULL',
+  onUpdate: 'CASCADE',
+  allowNull: true,
+});
+
+Order.belongsTo(Account);
 
 function sync(...args) {
   return sequelize.sync(...args);
 }
 
 export default { sync };
-export { User };
+export { Account, Order };

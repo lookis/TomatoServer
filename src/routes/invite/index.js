@@ -54,7 +54,7 @@ export default {
       title: '我的邀请',
       component: <Layout>
         <Header location={this.path} />
-        <Invite invitations={invitations} me={me} />
+        <Invite invitations={invitations} />
       </Layout>,
     };
   },

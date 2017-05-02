@@ -64,6 +64,43 @@ const messages = defineMessages({
 
 export default class extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      price: 9,
+    };
+  }
+
+  handlePlanChanged = (e) => {
+    switch (e.target.value) {
+      case '1':
+        this.setState({
+          price: 9,
+        });
+        break;
+      case '3':
+        this.setState({
+          price: 9 * 3,
+        });
+        break;
+      case '6':
+        this.setState({
+          price: Math.floor(9 * 6 * 0.95),
+        });
+        break;
+      case '12':
+        this.setState({
+          price: Math.floor(9 * 12 * 0.9),
+        });
+        break;
+      default:
+    }
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   render() {
     return (
       <div className="container" style={{ marginTop: `${30}px` }}>
@@ -80,7 +117,7 @@ export default class extends React.Component {
             <section className="widget">
               <div className="body">
                 <div id="error-con" />
-                <form method="post" id="main-form" className="form-horizontal label-right">
+                <form method="post" id="main-form" className="form-horizontal label-right" onSubmit={e => this.handleSubmit(e)}>
                   <div className="form-group">
                     <label className="col-sm-4 control-label">
                       <FormattedMessage {...messages.product} />
@@ -93,22 +130,22 @@ export default class extends React.Component {
                     <label className="col-sm-4 control-label"><FormattedMessage {...messages.duration} /></label>
                     <div id="time-container" className="col-sm-7">
                       <div className="radio">
-                        <input type="radio" id="buymonth-1" name="buy_month" defaultChecked value="1" />
+                        <input type="radio" id="buymonth-1" name="buy_month" defaultChecked value="1" onChange={e => this.handlePlanChanged(e)} />
                         <label htmlFor="buymonth-1" >
                           <FormattedMessage {...messages.onemonth} /></label>
                       </div>
                       <div className="radio">
-                        <input type="radio" id="buymonth-3" name="buy_month" value="3" />
+                        <input type="radio" id="buymonth-3" name="buy_month" value="3" onChange={e => this.handlePlanChanged(e)} />
                         <label htmlFor="buymonth-3" >
                           <FormattedMessage {...messages.threemonth} /></label>
                       </div>
                       <div className="radio">
-                        <input type="radio" id="buymonth-6" name="buy_month" value="6" />
+                        <input type="radio" id="buymonth-6" name="buy_month" value="6" onChange={e => this.handlePlanChanged(e)} />
                         <label htmlFor="buymonth-6" >
                           <FormattedMessage {...messages.sixmonth} /></label>
                       </div>
                       <div className="radio">
-                        <input type="radio" id="buymonth-12" name="buy_month" value="12" />
+                        <input type="radio" id="buymonth-12" name="buy_month" value="12" onChange={e => this.handlePlanChanged(e)} />
                         <label htmlFor="buymonth-12" >
                           <FormattedMessage {...messages.oneyear} /></label>
                       </div>
@@ -117,7 +154,7 @@ export default class extends React.Component {
                   <div className="form-group">
                     <label className="col-sm-4 control-label"><FormattedMessage {...messages.fee} /></label>
                     <div className="col-sm-7">
-                      <p><span id="fee" style={{ fontWeight: 200, paddingLeft: `${10}px`, letterSpacing: `${5}px`, lineHeight: `${24}px`, fontSize: `${20}px` }} className="label label-info">¥18</span></p>
+                      <p><span id="fee" style={{ fontWeight: 200, paddingLeft: `${10}px`, letterSpacing: `${5}px`, lineHeight: `${24}px`, fontSize: `${20}px` }} className="label label-info">¥{this.state.price}</span></p>
                     </div>
                   </div>
                   <div className="form-group" style={{ marginTop: `${20}px` }}>

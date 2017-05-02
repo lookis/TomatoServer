@@ -8,14 +8,12 @@
  */
 
 import AccountType from '../types/AccountType';
+import Account from '../models/Account';
 
 const me = {
   type: AccountType,
   resolve({ request }) {
-    return request.user && {
-      id: request.user.id,
-      email: request.user.email,
-    };
+    return request.user && Account.findById(request.user.id);
   },
 };
 

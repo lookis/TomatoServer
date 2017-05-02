@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { intlShape, injectIntl, defineMessages, FormattedMessage } from 'react-intl';
 import Link from '../../components/Link';
 import fetch from '../../core/fetch';
@@ -67,7 +68,12 @@ class Signup extends React.Component {
 
   static propTypes = {
     intl: intlShape.isRequired,
+    inviter: PropTypes.string,
   };
+
+  static defaultProps = {
+    inviter: null,
+  }
 
   constructor() {
     super();
@@ -87,7 +93,7 @@ class Signup extends React.Component {
       body: JSON.stringify({
         query: `
           mutation {
-            createAccount(email:"${this.email.value}", password: "${this.password.value}") {
+            createAccount(email:"${this.email.value}", password: "${this.password.value}", inviter: "${this.inviter.value}") {
               account {
                 id,
                 email,
@@ -100,7 +106,6 @@ class Signup extends React.Component {
       credentials: 'include',
     }).then(resp => resp.json())
     .then((r) => {
-      console.log(r);
       if (r.data && r.data.createAccount) {
         if (r.data.createAccount.account) {
           this.signinUsername.value = this.email.value;
@@ -164,6 +169,7 @@ class Signup extends React.Component {
                       />
                     </div>
                   </div>
+                  <input type="hidden" name="inviter" ref={(inviter) => { this.inviter = inviter; }} value={this.props.inviter} />
                   <div className="form-group">
                     <div className="col-sm-offset-4 col-sm-4">
                       <span className="fa fa-check-square-o">

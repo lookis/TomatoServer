@@ -15,11 +15,11 @@
 
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
-import { User } from '../data/models';
+import { Account } from '../data/models';
 
 passport.use(new LocalStrategy(
   (username, password, done) => {
-    User.findOne(
+    Account.findOne(
       { where: { email: username } },
     ).then((user) => {
       if (!user) { return done(null, false); }
