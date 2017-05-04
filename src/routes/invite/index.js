@@ -33,18 +33,22 @@ export default {
     // if (!data || !data.news) throw new Error('Failed to load the news feed.');
 
     const invitations = [{
+      id: '1',
       email: 'lookisliu@gmail.com',
       membership: true,
       createAt: new Date(),
     }, {
+      id: '2',
       email: 'lookisliu@gmail.com',
       membership: false,
       createAt: new Date(),
     }, {
+      id: '3',
       email: 'lookisliu@gmail.com',
       membership: true,
       createAt: new Date(),
     }, {
+      id: '4',
       email: 'lookisliu@gmail.com',
       membership: false,
       createAt: new Date(),

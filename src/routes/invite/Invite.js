@@ -69,11 +69,14 @@ const messages = defineMessages({
 
 class Invite extends React.Component {
   static propTypes = {
-    me: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      email: PropTypes.string.isRequired,
+    data: PropTypes.shape({
+      me: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired,
     invitations: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
       membership: PropTypes.bool.isRequired,
       createAt: PropTypes.object.isRequired,
@@ -145,7 +148,7 @@ class Invite extends React.Component {
                           <th width="27.27272727272727%"><FormattedMessage {...messages.invitationTime} /></th>
                         </tr>
                         {this.props.invitations.map(invitation => (
-                          <tr>
+                          <tr key={invitation.id}>
                             <td>{invitation.email}</td>
                             <td><span className={invitation.membership ? 'text-success' : 'text-default'}>
                               {invitation.membership ?
