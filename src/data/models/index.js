@@ -10,6 +10,7 @@
 import sequelize from '../sequelize';
 import Account from './Account';
 import Order from './Order';
+import Membership from './Membership';
 
 Account.belongsTo(Account, {
   as: 'inviter',
@@ -18,11 +19,13 @@ Account.belongsTo(Account, {
   allowNull: true,
 });
 
-Order.belongsTo(Account);
+
+Account.Membership = Account.hasOne(Membership);
+Account.hasMany(Order);
 
 function sync(...args) {
   return sequelize.sync(...args);
 }
 
 export default { sync };
-export { Account, Order };
+export { Account, Order, Membership };

@@ -20,7 +20,9 @@ export default {
   action() {
     return {
       title,
-      component: <Layout><ForgotPassword /></Layout>,
+      component: <Layout>
+        <ForgotPassword />
+      </Layout>,
     };
   },
 

@@ -149,22 +149,22 @@ class Header extends React.Component {
                 <Link to={'/dashboard#'} style={{ padding: 0, paddingTop: `${3}px` }} className="dropdown-toggle" data-toggle="dropdown">
                   <img style={{ width: `${32}px`, height: `${32}px` }} className="img-rounded" alt="avatar" src={`https://www.gravatar.com/avatar/${md5(me.email)}`} />&nbsp;&nbsp;{me.email}<b className="caret" /></Link>
                 <ul className="dropdown-menu" role="menu">
-                  <li>
-                    <Link to={'/orders'}>
-                      <i className="fa fa-book" />
-                      &nbsp;&nbsp;<FormattedMessage {...messages.orders} />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={'/forgot_password'}>
-                      <i className="fa fa-key" />
-                      &nbsp;&nbsp;<FormattedMessage {...messages.forgot_password} />
-                    </Link></li>
-                  <li>
-                    <Link to={'/invite'}>
-                      <i className="fa fa-share-square-o" />
-                      &nbsp;&nbsp;<FormattedMessage {...messages.invite} />
-                    </Link></li>
+                  {/* <li>*/}
+                  {/* <Link to={'/orders'}>*/}
+                  {/* <i className="fa fa-book" />*/}
+                  {/* &nbsp;&nbsp;<FormattedMessage {...messages.orders} />*/}
+                  {/* </Link>*/}
+                  {/* </li>*/}
+                  {/* <li>*/}
+                  {/* <Link to={'/forgot_password'}>*/}
+                  {/* <i className="fa fa-key" />*/}
+                  {/* &nbsp;&nbsp;<FormattedMessage {...messages.forgot_password} />*/}
+                  {/* </Link></li>*/}
+                  {/* <li>*/}
+                  {/* <Link to={'/invite'}>*/}
+                  {/* <i className="fa fa-share-square-o" />*/}
+                  {/* &nbsp;&nbsp;<FormattedMessage {...messages.invite} />*/}
+                  {/* </Link></li>*/}
                   <li className="divider" />
                   <li>
                     <form action="/signout" method="post" ref={(signout) => { this.signout = signout; }} />

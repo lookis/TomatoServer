@@ -10,6 +10,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
+import AuthenticationRequired from '../../components/AuthenticationRequired';
 import Dashboard from './Dashboard';
 
 const title = '用户中心';
@@ -19,14 +20,12 @@ export default {
   path: '/dashboard',
 
   action() {
-    const membership = {
-      due: new Date(),
-    }
     return {
       title,
       component: <Layout>
+        <AuthenticationRequired location={this.path} />
         <Header location={this.path} />
-        <Dashboard membership={membership} />
+        <Dashboard />
       </Layout>,
     };
   },

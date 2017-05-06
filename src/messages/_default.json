@@ -379,7 +379,7 @@
   },
   {
     "id": "faq.question4.answer1",
-    "defaultMessage": "番茄网络会在系统的网络设置-&gt;高级-&gt;代理下面启用一个socks5代理和一个自动配置文件",
+    "defaultMessage": "番茄网络会在系统的网络设置->高级->代理下面启用一个socks5代理和一个自动配置文件",
     "message": "",
     "files": [
       "src/routes/faq/Faq.js"
@@ -499,7 +499,7 @@
   },
   {
     "id": "home.price",
-    "defaultMessage": "仅需 ¥9/月",
+    "defaultMessage": "免费测试中",
     "message": "",
     "files": [
       "src/routes/home/Home.js"
@@ -1195,6 +1195,38 @@
     "message": "",
     "files": [
       "src/routes/signin/Signin.js"
+    ]
+  },
+  {
+    "id": "dashboard.download",
+    "defaultMessage": "下载客户端",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "dashboard.testMode",
+    "defaultMessage": "测试期间免费使用",
+    "message": "",
+    "files": [
+      "src/routes/dashboard/Dashboard.js"
+    ]
+  },
+  {
+    "id": "forgot.generalError",
+    "defaultMessage": "出错了，请稍后再试",
+    "message": "",
+    "files": [
+      "src/routes/forgotPassword/ForgotPassword.js"
+    ]
+  },
+  {
+    "id": "forgot.success",
+    "defaultMessage": "密码重置邮件已发送，可能会有3-5分钟延迟，请注意查收",
+    "message": "",
+    "files": [
+      "src/routes/forgotPassword/ForgotPassword.js"
     ]
   }
 ]

@@ -23,9 +23,30 @@ const messages = defineMessages({
     id: 'forgot.send',
     defaultMessage: '发送密码重置链接',
   },
+  generalSuccess: {
+    id: 'forgot.success',
+    defaultMessage: '密码重置邮件已发送，可能会有3-5分钟延迟，请注意查收',
+  },
+  generalError: {
+    id: 'forgot.generalError',
+    defaultMessage: '出错了，请稍后再试',
+  },
 });
 
 export default class extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      error: null,
+      success: null,
+    };
+  }
+
+  handleReset = (e) => {
+    e.preventDefault();
+  }
+
   render() {
     return (
       <div className="container" style={{ marginTop: `${60}px` }}>
@@ -38,12 +59,27 @@ export default class extends React.Component {
           <div className="col-md-12">
             <section className="widget">
               <div className="body">
-                <div className="alert alert-danger"><p>邮箱地址格式错误:123</p></div>
-                <form method="post" id="main-form" className="form-horizontal label-right">
+                {this.state.success ? <div className="alert alert-success">
+                  <p><FormattedMessage
+                    {...
+                      this.state.success in messages ?
+                        messages[this.state.success] : messages.generalSuccess
+                    }
+                  /></p>
+                </div> : <div />}
+                {this.state.error ? <div className="alert alert-danger">
+                  <p><FormattedMessage
+                    {...
+                      this.state.error in messages ?
+                        messages[this.state.error] : messages.generalError
+                    }
+                  /></p>
+                </div> : <div />}
+                <form method="post" id="main-form" className="form-horizontal label-right" onSubmit={e => this.handleReset(e)}>
                   <div className="form-group">
                     <label className="col-sm-4 control-label" htmlFor="email"><FormattedMessage {...messages.email} /></label>
                     <div className="col-sm-4">
-                      <input type="text" id="email" name="email" className="form-control" />
+                      <input type="text" id="email" name="email" className="form-control" ref={(email) => { this.email = email; }} />
                     </div>
                   </div>
                   <div className="form-group" style={{ marginTop: `${20}px` }}>

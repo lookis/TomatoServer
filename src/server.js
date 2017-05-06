@@ -73,7 +73,17 @@ app.use(bodyParser.json());
 app.use(expressJwt({
   secret: auth.jwt.secret,
   credentialsRequired: false,
-  getToken: req => req.cookies.t,
+  getToken: (req) => {
+    if (req.cookies && req.cookies.t) {
+      return req.cookies.t;
+    } else if (req.headers && req.headers.authorization) {
+      const parts = req.headers.authorization.split(' ');
+      if (parts.length === 2 && /^Bearer$/i.test(parts[0])) {
+        return parts[1];
+      }
+    }
+    return null;
+  },
 }));
 app.use(passport.initialize());
 
@@ -81,25 +91,55 @@ if (__DEV__) {
   app.enable('trust proxy');
 }
 
-app.post('/signin',
-  passport.authenticate('local', {
-    session: false,
-    failureRedirect: '/signin?e',
-    failureFlash: false }),
-  (req, res) => {
-    const expiresIn = 60 * 60 * 24 * 180; // 180 days
-    const token = jwt.sign({
-      id: req.user.id,
-    }, auth.jwt.secret, { expiresIn });
-    const next = req.param('next');
-    res.cookie('t', token, { maxAge: 1000 * expiresIn, httpOnly: true });
-    if (next) {
-      res.redirect(next);
-    } else {
-      res.redirect('/');
+app.post('/signin', (req, res, next) => {
+  passport.authenticate('local', (err, user) => {
+    if (err) { return next(err); }
+    if (!user) {
+      if (req.accepts('html')) {
+        return res.redirect('/signin?e');
+      }
+      return res.send({ t: null });
     }
-  },
-);
+    return req.logIn(user, {
+      session: false,
+    }, (errLogIn) => {
+      if (errLogIn) { return next(errLogIn); }
+      const expiresIn = 60 * 60 * 24 * 180; // 180 days
+      const token = jwt.sign({
+        id: req.user.id,
+      }, auth.jwt.secret, { expiresIn });
+      if (req.accepts('html')) {
+        const nextPath = req.param('next');
+        res.cookie('t', token, { maxAge: 1000 * expiresIn, httpOnly: true });
+        if (nextPath) {
+          return res.redirect(nextPath);
+        }
+        return res.redirect('/');
+      }
+      return res.send({ t: token });
+    });
+  })(req, res, next);
+});
+
+// app.post('/signin',
+//   passport.authenticate('local', {
+//     session: false,
+//     failureRedirect: '/signin?e',
+//     failureFlash: false }),
+//   (req, res) => {
+//     const expiresIn = 60 * 60 * 24 * 180; // 180 days
+//     const token = jwt.sign({
+//       id: req.user.id,
+//     }, auth.jwt.secret, { expiresIn });
+//     const next = req.param('next');
+//     res.cookie('t', token, { maxAge: 1000 * expiresIn, httpOnly: true });
+//     if (next) {
+//       res.redirect(next);
+//     } else {
+//       res.redirect('/');
+//     }
+//   },
+// );
 
 app.post('/signout', (req, res) => {
   res.clearCookie('t');

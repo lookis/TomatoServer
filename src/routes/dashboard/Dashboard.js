@@ -10,6 +10,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { defineMessages, FormattedMessage } from 'react-intl';
+import { graphql } from 'react-apollo';
+import query from './dashboard.graphql';
 import Link from '../../components/Link';
 
 const messages = defineMessages({
@@ -33,6 +35,10 @@ const messages = defineMessages({
     id: 'dashboard.mode',
     defaultMessage: '普通',
   },
+  testMode: {
+    id: 'dashboard.testMode',
+    defaultMessage: '测试期间免费使用',
+  },
   endTime: {
     id: 'dashboard.endTime',
     defaultMessage: '{year}年{month}月{date}日',
@@ -49,16 +55,27 @@ const messages = defineMessages({
     id: 'dashboard.subscribe',
     defaultMessage: '续费',
   },
+  download: {
+    id: 'dashboard.download',
+    defaultMessage: '下载客户端',
+  },
 });
 
-export default class extends React.Component {
+class Dashboard extends React.Component {
   static propTypes = {
-    membership: PropTypes.shape({
-      due: PropTypes.object,
+    data: PropTypes.shape({
+      membership: PropTypes.shape({
+        due: PropTypes.object,
+      }),
     }).isRequired,
   };
 
   render() {
+    const { data: { membership } } = this.props;
+    let due = null;
+    if (membership && membership.due) {
+      due = new Date(membership.due);
+    }
     return (
       <div className="container" style={{ marginTop: `${30}px` }}>
         <div className="row">
@@ -67,34 +84,54 @@ export default class extends React.Component {
               <header>
                 <h4><i className="fa fa-cloud" />&nbsp;&nbsp;<FormattedMessage {...messages.title} /></h4>
               </header>
-              <div className="body">
-                <table className="table table-striped">
-                  <tbody><tr>
-                    <th width="20%"><FormattedMessage {...messages.product} /></th>
-                    <th width="35%"><FormattedMessage {...messages.duration} /></th>
-                    <th width="30%"><FormattedMessage {...messages.action} /></th>
-                  </tr>
-                    <tr>
-                      <td>
-                        <FormattedMessage {...messages.mode} /></td>
-                      <td>
-                        {this.props.membership.due ? (<FormattedMessage
-                          values={{
-                            year: this.props.membership.due.getFullYear(),
-                            month: this.props.membership.due.getMonth() + 1,
-                            date: this.props.membership.due.getDate() + 1,
-                          }}
-                          {...messages.endTime}
-                        />) : '-'}
-                        {this.props.membership.due > new Date() ?
-                          <span className="text-success"><FormattedMessage {...messages.serviceOn} /></span> :
-                          <span className="text-danger"><FormattedMessage {...messages.serviceOff} /></span>}
-                      </td>
-                      <td>
-                        <Link className="btn btn-success" to={'/make_plan'}><FormattedMessage {...messages.subscribe} /></Link>
-                      </td>
-                    </tr><tr /></tbody></table>
-              </div>
+              {membership && membership.id !== '0' ? (
+                <div className="body">
+                  <table className="table table-striped">
+                    <tbody><tr>
+                      <th width="20%"><FormattedMessage {...messages.product} /></th>
+                      <th width="35%"><FormattedMessage {...messages.duration} /></th>
+                      <th width="30%"><FormattedMessage {...messages.action} /></th>
+                    </tr>
+                      <tr>
+                        <td>
+                          <FormattedMessage {...messages.mode} /></td>
+                        <td>
+                          {due ? (<FormattedMessage
+                            values={{
+                              year: due.getFullYear(),
+                              month: due.getMonth() + 1,
+                              date: due.getDate() + 1,
+                            }}
+                            {...messages.endTime}
+                          />) : '-'}
+                          {due > new Date() ?
+                            <span className="text-success"><FormattedMessage {...messages.serviceOn} /></span> :
+                            <span className="text-danger"><FormattedMessage {...messages.serviceOff} /></span>}
+                        </td>
+                        <td>
+                          <Link className="btn btn-success" to={'/make_plan'}><FormattedMessage {...messages.subscribe} /></Link>
+                        </td>
+                      </tr><tr /></tbody></table>
+                </div>
+              ) : (
+                <div className="body">
+                  <table className="table table-striped">
+                    <tbody><tr>
+                      <th width="20%"><FormattedMessage {...messages.product} /></th>
+                      <th width="35%"><FormattedMessage {...messages.duration} /></th>
+                      <th width="30%"><FormattedMessage {...messages.action} /></th>
+                    </tr>
+                      <tr>
+                        <td>
+                          <FormattedMessage {...messages.mode} /></td>
+                        <td>
+                          <FormattedMessage {...messages.testMode} /></td>
+                        <td>
+                          <a className="btn btn-success" href="/download"><FormattedMessage {...messages.download} /></a>
+                        </td>
+                      </tr><tr /></tbody></table>
+                </div>
+              )}
             </section>
           </div>
         </div>
@@ -103,3 +140,4 @@ export default class extends React.Component {
   }
 }
 
+export default graphql(query)(Dashboard);

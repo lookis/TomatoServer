@@ -13,7 +13,8 @@ import {
 } from 'graphql';
 
 import me from './queries/me';
-
+import intl from './queries/intl';
+import membership from './queries/membership';
 import createAccount from './mutations/createAccount';
 
 const schema = new Schema({
@@ -21,6 +22,8 @@ const schema = new Schema({
     name: 'Query',
     fields: {
       me,
+      membership,
+      intl,
     },
   }),
   mutation: new ObjectType({

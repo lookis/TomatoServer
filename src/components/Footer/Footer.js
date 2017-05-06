@@ -38,7 +38,6 @@ class Footer extends React.Component {
           <div className="col-md-12">
             <p>©{new Date().getFullYear()} <FormattedMessage {...messages.sitename} />&nbsp;
               <Link to={'/'}><FormattedMessage {...messages.home} /></Link>
-              <Link to={'/dashboard'} rel="nofollow"><FormattedMessage {...messages.dashboard} /></Link>
               <Link to={'/terms_of_service'} rel="nofollow"><FormattedMessage {...messages.tos} /></Link>
               <Link to={'/contact'} rel="nofollow"><FormattedMessage {...messages.contact} /></Link>
             </p>

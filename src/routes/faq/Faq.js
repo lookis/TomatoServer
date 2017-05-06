@@ -58,7 +58,7 @@ const messages = defineMessages({
   },
   question4Answer1: {
     id: 'faq.question4.answer1',
-    defaultMessage: '番茄网络会在系统的网络设置-&gt;高级-&gt;代理下面启用一个socks5代理和一个自动配置文件',
+    defaultMessage: '番茄网络会在系统的网络设置->高级->代理下面启用一个socks5代理和一个自动配置文件',
   },
   question5: {
     id: 'faq.question5.queation',
@@ -148,16 +148,6 @@ export default class extends React.Component {
                 <div id="faq4" className="panel-collapse collapse" style={{ height: `${0}px` }}>
                   <div className="panel-body">
                     <p><FormattedMessage {...messages.question4Answer1} /></p>
-                  </div>
-                </div>
-              </div>
-              <div className="panel">
-                <div className="panel-heading">
-                  <Link className="accordion-toggle collapsed" data-toggle="collapse" data-parent="#faqs" to={'/faq#faq5'}><FormattedMessage {...messages.question5} /></Link>
-                </div>
-                <div id="faq5" className="panel-collapse collapse" style={{ height: `${0}px` }}>
-                  <div className="panel-body">
-                    <p><FormattedMessage {...messages.question5Answer1} /></p>
                   </div>
                 </div>
               </div>

@@ -30,7 +30,7 @@ const messages = defineMessages({
   },
   price: {
     id: 'home.price',
-    defaultMessage: '仅需 ¥9/月',
+    defaultMessage: '免费测试中',
   },
 });
 
@@ -44,9 +44,9 @@ class Home extends React.Component {
             <h3 style={{ fontWeight: 200 }}><FormattedMessage {...messages.subtitle1} /><br />
               <FormattedMessage {...messages.subtitle2} /></h3>
             <p>
-              <Link style={{ fontSize: `${18}px` }} to={'/make_plan'} className="btn btn-sm btn-success">
+              <Link style={{ fontSize: `${18}px` }} to={'/dashboard'} className="btn btn-sm btn-success">
                 <FormattedMessage {...messages.price} />
-                <i className="fa fa-shopping-cart" />
+                {/* <i className="fa fa-shopping-cart" />*/}
               </Link>
             </p>
             <p><FormattedMessage {...messages.requirement} /></p>

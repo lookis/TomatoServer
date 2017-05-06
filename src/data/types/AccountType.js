@@ -17,9 +17,10 @@ import Account from '../models/Account';
 
 const AccountType = new ObjectType({
   name: Account.name,
-  fields: attributeFields(Account, {
-    only: ['id', 'email', 'createdAt'],
-  }),
+  fields: Object.assign(attributeFields(Account, {
+    only: ['id', 'email', 'createdAt', 'emailConfirmed'],
+    commentToDescription: true,
+  })),
 });
 
 export default AccountType;

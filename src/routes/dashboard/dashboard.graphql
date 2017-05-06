@@ -1,0 +1,6 @@
+{
+  membership {
+    id
+    due
+  }
+}

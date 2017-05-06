@@ -175,7 +175,7 @@ class Signup extends React.Component {
                       <span className="fa fa-check-square-o">
                         <FormattedMessage {...messages.tos1} />
                       </span>
-                      <Link to={'/signup#tos-dialog'} data-toggle="modal" data-target="#tos-dialog"><FormattedMessage {...messages.tos2} /></Link>
+                      <Link to={'/terms_of_service'} ><FormattedMessage {...messages.tos2} /></Link>
                     </div>
                   </div>
                   <div className="form-group" style={{ marginTop: `${20}px` }}>
