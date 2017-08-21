@@ -116,7 +116,7 @@ app.post('/signin', (req, res, next) => {
         }
         return res.redirect('/');
       }
-      return res.send({ t: token });
+      return res.send({ t: token, expiresIn });
     });
   })(req, res, next);
 });
